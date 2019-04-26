@@ -26,11 +26,9 @@ Brazil-Canada Community Association's website
 - HTML minify on build (optional)
 - JS minify on build
 - Optmized Images on build
-- <a href="https://www.browsersync.io/">BrowserSync Live Reloading</a>
 
 ### CI/CD
 - <a href="#deploy">FTP Deploy</a> integrated
-- <a href="#deploy">Travis CI</a> ready
 
 
 ## Installation
@@ -46,23 +44,21 @@ Brazil-Canada Community Association's website
 
 # How to Use
 
-## Front-end
+- `npm run frontend` - Start front-end developement
+- `npm run back` - Start backe-end developement
 
-- `npm run frontend` - Start developement
+# Deploy
 
-### Gulp tasks
-- `frontend:start` - Start Browser Live reloading and watch SASS files.
-- `frontend:build` - Minify HTML/CSS/JS, Optimize images and copy do dist folder.
-- `frontend:deploy` - Build and upload all `front-end/dist` files to FTP server.
+1. Fill FTP credentials and server info on `credentials-sample.json` 
+2. Rename `credentials-sample.json` to `credentials.json`
 
-## Back-end
+<strong>NOTE:</strong>
+Due sensitive information, `credentials.json` WILL NOT BE on version control.
 
-- `npm run backend` - Start developement
+Gulp tasks for deployment: 
 
-### Gulp tasks
-- `backend:install` - Download WordPress latest version, unzip it and setup a server folder.
-- `backend:start` -  Start Browser Live reloading and watch SASS files.
-- `backend:deploy` -  Build theme and upload all `back-end/src` files to FTP server.
+- `gulp frontend:deploy` - Deploy front-end
+- `gulp backend:deploy` - Deploy back-end
 
 # References
 - Project based on <a href="https://github.com/marceloglacial/snowfall-boilerplate">Snowfall Boilerplate</a> 
