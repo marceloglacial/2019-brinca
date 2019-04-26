@@ -222,7 +222,7 @@ const backend = new function () {
     this.root = 'back-end/';
     this.src = this.root + 'src/';
     this.dist = this.root + 'dist/' + projectConfig.name;
-    this.proxy = 'http://localhost:8000';
+    this.proxy = 'http://localhost:8001';
 };
 
 // 4.2 - Rename index files to php

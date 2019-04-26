@@ -1,15 +1,15 @@
 {
-  "name": "snowfall-boilerplate",
+  "name": "2019-brinca",
   "version": "0.0.7",
-  "description": "End-to-end web project based on three stages:  Design, Front-end and Back-end",
+  "description": "Brazil-Canada Community Association's website",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marceloglacial/snowfall-boilerplate.git"
+    "url": "git+https://github.com/marceloglacial/2019-brinca.git"
   },
   "author": "Marcelo Glacial Freitas",
   "license": "OSL",
   "bugs": {
-    "url": "https://github.com/marceloglacial/snowfall-boilerplate/issues"
+    "url": "https://github.com/marceloglacial/2019-brinca/issues"
   },
   "scripts": {
     "frontend": "gulp frontend:start",
@@ -17,10 +17,10 @@
     "stop": "docker-compose stop",
     "destroy": "docker-compose down --volumes"
   },
-  "homepage": "https://github.com/marceloglacial/snowfall-boilerplate#readme",
+  "homepage": "https://github.com/marceloglacial/2019-brinca#readme",
   "devDependencies": {
     "autoprefixer": "^9.5.0",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.5",
     "del": "^4.0.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
