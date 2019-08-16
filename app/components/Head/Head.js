@@ -1,12 +1,16 @@
 import Head from 'next/head';
 
-function HeadComponent() {
+
+const HeadComponent = props => {
+    const siteItems = props.siteData;
+    const { name, description, icon } = siteItems;
+
     return (
         <div>
             <Head>
-                <title>Brinca</title>
+                <title>{name} - {description}</title>
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' key='viewport' />
-                <link rel='shortcut icon' type='image/x-icon' href='https://bulma.io/favicons/favicon.ico' />
+                <link rel='shortcut icon' type='image/x-icon' href={icon.ico} />
             </Head>
         </div>
     );

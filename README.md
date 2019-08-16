@@ -4,8 +4,10 @@ Brazil-Canada Community Association's website
 
 ## Features
 
-- Serveless React Web App
+- React Web App
 - Headless WordPress
+- Serveless Architecture
+- Automated CI/CD
 
 ## Documents
 
@@ -22,6 +24,11 @@ Brazil-Canada Community Association's website
 
 - <a href="https://reactjs.org/">React</a>
 - <a href="https://nextjs.org/">Next.JS</a>
+- <a href="https://sass-lang.com">SASS</a>
+- <a href="https://getbootstrap.com/">Bootstrap 4</a>
+- <a href="https://www.w3.org/html/">HTML5</a>
+- <a href="https://www.w3.org/Style/CSS/">CSS3</a>
+- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript ES6</a>
 
 ## Back-end
 
