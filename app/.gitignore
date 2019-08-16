@@ -30,6 +30,4 @@ node_modules
 \.DS_Store
 
 # Project Files/Folders
-back-end/server
-back-end/tmp
-credentials.json
+.next
