@@ -3,8 +3,10 @@ import './Header.scss';
 import Link from 'next/link';
 
 const Header = props => {
-    // Display Menu Item
+    // Get data
     const menuItems = props.navMenuData;
+    const siteItems = props.siteData;
+    const { siteName, siteDescription } = siteItems;
 
     // Get Menu - Top
     const navID = menuItems.find(function(element) {
@@ -21,6 +23,7 @@ const Header = props => {
         return element.slug === 'language';
     });
 
+    // Display items
     const navMenuItem = menuItems.map(navMenuItem => {
         const { content, id } = navMenuItem;
 
@@ -40,8 +43,8 @@ const Header = props => {
         <>
             <header className='site-header container'>
                 <div className='site-info'>
-                    <h1 className='site-info__title'>Brinca</h1>
-                    <p className='site-info__description'>Brazil-Canada Community Association's website</p>
+                    <h1 className='site-info__title'>{siteName}</h1>
+                    <p className='site-info__description'>{siteDescription}</p>
                 </div>
                 <div className='site-logo'>
                     <Link href='/'>
