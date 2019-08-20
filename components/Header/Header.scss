@@ -1,9 +1,9 @@
 .site-info {
     display: none;
 }
-.site-logo__img {
-    min-width: 200px;
-    height: 100px;
+.site-logo__img img {
+    max-width: 300px;
+    height: auto;
 }
 .site-header {
     position: relative;
