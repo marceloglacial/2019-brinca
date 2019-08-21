@@ -1,4 +1,3 @@
-import '../../node_modules/bootstrap/scss/bootstrap.scss';
 import './Header.scss';
 import Link from 'next/link';
 
@@ -6,65 +5,58 @@ const Header = props => {
     // Get data
     const menuItems = props.navMenuData;
     const siteItems = props.siteData;
-    const { siteName, siteDescription } = siteItems;
+    const { name: siteName, description: siteDescription } = siteItems;
 
-    // Get Menu - Top
-    const navID = menuItems.find(function(element) {
-        return element.slug === 'menu-topo';
-    });
-
-    // Get Logo
-    const navLogo = menuItems.find(function(element) {
-        return element.slug === 'menu-logo';
-    });
-
-    // Get Telephone
-    const navTelephone = menuItems.find(function(element) {
-        return element.slug === 'telephone';
-    });
-
-    // Get Language
-    const navLanguage = menuItems.find(function(element) {
-        return element.slug === 'language';
-    });
-
-    // Display items
-    const navMenuItem = menuItems.map(navMenuItem => {
-        const { content, id } = navMenuItem;
-
-        if (id === navLogo.id) {
-            return (
-                <div className='site-logo' key='site-logo'>
-                    <Link href='/'>
-                        <a className='site-info__link'>
-                            <div className='site-logo__img' dangerouslySetInnerHTML={{ __html: content.rendered }} key={id} />
-                        </a>
-                    </Link>
-                </div>
-            );
-        }
-
-        if (id === navID.id) {
-            return <div className='menu-top' dangerouslySetInnerHTML={{ __html: content.rendered }} key={id} />;
-        }
-
-        if (id === navTelephone.id) {
-            return <div className='menu-telephone' dangerouslySetInnerHTML={{ __html: content.rendered }} key={id} />;
-        }
-
-        if (id === navLanguage.id) {
-            return <div className='menu-language' dangerouslySetInnerHTML={{ __html: content.rendered }} key={id} />;
+    // Display Logo
+    const siteLogo = menuItems.map(siteLogo => {
+        const { content, slug } = siteLogo;
+        if (slug === 'header-logo') {
+            return <div className='site-logo' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
         }
     });
+
+    // Display Menu items
+    const navMenuItems = menuItems.map(navMenuItems => {
+        const { content, slug } = navMenuItems;
+
+        if (slug === 'menu-topo') {
+            return <div className='site-menu--header__menu-top' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
+        }
+
+        if (slug === 'telephone') {
+            return <div className='site-menu--header__telephone' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
+        }
+
+        if (slug === 'language') {
+            return <div className='site-menu--header__language' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
+        }
+    });
+
+    // Open/Close Mobile menu
+    const toggleMenu = () => {
+        let menu = document.querySelector('.site-menu--header');
+        let button = document.querySelector('.site-menu--header__button');
+
+        menu.classList.toggle('is-open');
+        button.classList.toggle('is-open');
+    };
 
     return (
         <>
             <header className='site-header container'>
+                <div className='site-logo' key='site-logo'>
+                    <Link href='/'>
+                        <a className='site-logo__link'>
+                            <div className='site-logo__img'>{siteLogo}</div>
+                        </a>
+                    </Link>
+                </div>
                 <div className='site-info'>
                     <h1 className='site-info__title'>{siteName}</h1>
                     <p className='site-info__description'>{siteDescription}</p>
                 </div>
-                <div className='site-header__menu'>{navMenuItem}</div>
+                <div className='site-menu--header'>{navMenuItems}</div>
+                <button className='site-menu--header__button' onClick={toggleMenu} />
             </header>
         </>
     );
