@@ -1,3 +1,4 @@
+import React from 'react';
 import HeadComponent from '../components/Head/Head';
 import Header from '../components/Header/Header';
 import fetch from 'isomorphic-unfetch';

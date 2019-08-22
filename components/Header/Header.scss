@@ -1,5 +1,4 @@
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
-@import '../Base/variables';
+@import '../../styles/styles';
 
 .site-header {
     position: relative;
@@ -8,28 +7,6 @@
     ul {
         padding: 0;
         list-style: none;
-    }
-}
-.site-menu--header__button {
-    display: flex;
-    width: 2.5rem;
-    height: 2.5rem;
-    background: url('/static/menu-button.svg') no-repeat center center;
-    background-size: 1.5rem;
-    content: '';
-    position: absolute;
-    top: 0.5rem;
-    right: 1.3rem;
-    z-index: 100;
-    border: none;
-    transition: background-image 0.3s ease-in-out;
-
-    @include media-breakpoint-up(lg) {
-        display: none;
-    }
-
-    &.is-open {
-        background-image: url('/static/menu-button-close.svg');
     }
 }
 
@@ -51,7 +28,6 @@
     top: 0;
     left: 0;
     display: flex;
-    align-items: center;
     flex-direction: column-reverse;
     justify-content: flex-end;
     background: $green;
@@ -59,12 +35,8 @@
     width: 100%;
     overflow: auto;
     padding: 3rem 1rem;
-    transform: translateX(300%);
+    transform: translateX(0%);
     transition: all 0.3s ease-in-out;
-
-    &.is-open {
-        transform: translateX(0%);
-    }
 
     @include media-breakpoint-up(lg) {
         position: unset;
@@ -73,6 +45,23 @@
         display: unset;
         padding: unset;
         height: unset;
+    }
+
+    &.is-open {
+        transform: translateX(0%);
+    }
+}
+
+.site-menu--header__menu-top-container {
+    width: 100%;
+}
+
+.site-menu--header__menu-top-container__title {
+    color: $white;
+    padding-left: 1rem;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
     }
 }
 
@@ -91,33 +80,34 @@
         height: 3rem;
     }
 }
+
 .site-menu--header__menu-top ul li {
     height: 50px;
     width: 100%;
     position: relative;
 
-    &:before {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 0%;
-        content: '';
-        background: $white;
-        transition: all 0.1s ease-in-out;
-        z-index: 0;
-        bottom: 0;
-
-        @include media-breakpoint-up(lg) {
-            background: rgba(0, 0, 0, 0.1);
-        }
-    }
-
-    &:hover:before {
-        height: 100%;
-    }
-
     @include media-breakpoint-up(lg) {
         height: 100%;
+
+        &:before {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 0%;
+            content: '';
+            background: $white;
+            transition: all 0.1s ease-in-out;
+            z-index: 0;
+            bottom: 0;
+
+            @include media-breakpoint-up(lg) {
+                background: rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        &:hover:before {
+            height: 100%;
+        }
     }
 }
 
@@ -125,13 +115,17 @@
     color: $white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
     height: 100%;
     padding: 0 1rem;
     position: relative;
     z-index: 10;
     transition: all 0.2s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+        justify-content: center;
+    }
 
     &:after {
         display: block;
@@ -156,9 +150,11 @@
 .site-menu--header__telephone {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 3rem;
+    padding-left: 1rem;
     color: $white;
+    width: 100%;
 
     @include media-breakpoint-up(lg) {
         background: url('/static/ico-phone.png') no-repeat;
@@ -169,18 +165,17 @@
         left: 50%;
         transform: translateX(-50%);
         color: $black;
+        justify-content: center;
+        width: unset;
     }
 }
 
 .site-menu--header__language {
     line-height: 0;
+    height: 50px;
     width: 150px;
     overflow: hidden;
     transition: all 0.15s ease-in-out;
-
-    &:hover {
-        height: 120px;
-    }
 
     @include media-breakpoint-up(lg) {
         position: absolute;
@@ -188,27 +183,42 @@
         top: 2rem;
         right: 1rem;
         background: $white;
-        height: 50px;
         outline: solid 5px $white;
+    }
+
+    &:hover {
+        height: 120px;
     }
 }
 
 .language__item {
-    margin: 0;
+    margin: 0 0 0 1rem;
     padding: 0;
-    background: no-repeat right center;
+    background: no-repeat left center;
     background-size: 30px;
+
+    @include media-breakpoint-up(lg) {
+        margin: 0;
+        background: no-repeat right center;
+        background-size: 30px;
+    }
 
     a {
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: flex-start;
         width: 100%;
         height: 40px;
-        padding-right: 3rem;
+        padding: 0 0 0 3rem;
         color: $white;
         position: relative;
         transition: all 0.2s ease-in-out;
+
+        @include media-breakpoint-up(lg) {
+            color: $black;
+            justify-content: flex-end;
+            padding: 0 3rem 0 0;
+        }
 
         &::after {
             position: absolute;
@@ -227,9 +237,6 @@
 
         &:hover::after {
             width: 30px;
-        }
-        @include media-breakpoint-up(lg) {
-            color: $black;
         }
     }
 
@@ -251,5 +258,28 @@
         a:hover:after {
             background-color: $green;
         }
+    }
+}
+
+.site-menu--header__button {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url('/static/menu-button.svg') no-repeat center center;
+    background-size: 1.5rem;
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    right: 1.3rem;
+    z-index: 100;
+    border: none;
+    transition: background-image 0.3s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    &.is-open {
+        background-image: url('/static/menu-button-close.svg');
     }
 }

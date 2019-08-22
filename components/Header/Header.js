@@ -1,3 +1,4 @@
+import React from 'react';
 import './Header.scss';
 import Link from 'next/link';
 
@@ -20,7 +21,12 @@ const Header = props => {
         const { content, slug } = navMenuItems;
 
         if (slug === 'menu-topo') {
-            return <div className='site-menu--header__menu-top' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
+            return (
+                <div className='site-menu--header__menu-top-container'>
+                    <h2 className='site-menu--header__menu-top-container__title'>Menu</h2>
+                    <div className='site-menu--header__menu-top' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
+                </div>
+            );
         }
 
         if (slug === 'telephone') {
