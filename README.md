@@ -20,6 +20,10 @@ Brazil-Canada Community Association's website
 - <a href="https://www.figma.com/proto/u2YpSdwhiHREoU9KLVllTo/Brinca-(2019)?node-id=1%3A2&scaling=min-zoom">Desktop</a>
 - <a href="https://www.figma.com/proto/u2YpSdwhiHREoU9KLVllTo/Brinca-(2019)?node-id=77%3A414&scaling=min-zoom">Mobile</a>
 
+### Design Screens
+- <a href="https://xd.adobe.com/view/19622249-7da6-4faa-6025-64b57b2aea8d-6f53/">Desktop</a>
+
+
 ## Front-end 
 
 - <a href="https://reactjs.org/">React</a>
