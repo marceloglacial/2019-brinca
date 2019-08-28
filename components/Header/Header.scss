@@ -22,6 +22,20 @@
 .site-header .site-info {
     display: none;
 }
+.site-header:after {
+    @include media-breakpoint-up(lg) {
+        display: block;
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 100vw;
+        height: 48px;
+        background: $green;
+        z-index: -1;
+    }
+}
 .site-menu--header-container {
     position: fixed;
     top: 0;
