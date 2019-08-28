@@ -7,8 +7,8 @@ const Footer = props => {
     const menuItems = props.navMenuData;
 
     // Display Menu items
-    const navMenuItems = menuItems.map(navMenuItems => {
-        const { content, slug } = navMenuItems;
+    const rodapeItems = menuItems.map(rodapeItems => {
+        const { content, slug } = rodapeItems;
 
         if (slug === 'menu-rodape-social') {
             return (
@@ -25,11 +25,20 @@ const Footer = props => {
                 </div>
             );
         }
+
+        if (slug === 'menu-rodape-copyright') {
+            return (
+                <div className='menu-rodape-copyright' key='menu-rodape-copyright'>
+                    <div className='container' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
+                </div>
+            );
+        }
+
     });
 
-    return (
+    return (    
         <>
-            <div className='site-footer'>{navMenuItems}</div>
+            <div className='site-footer'>{rodapeItems}</div>
         </>
     );
 };
