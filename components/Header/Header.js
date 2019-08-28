@@ -20,7 +20,7 @@ const Header = props => {
     const navMenuItems = menuItems.map(navMenuItems => {
         const { content, slug } = navMenuItems;
 
-        if (slug === 'menu-topo') {
+        if (slug === 'cabecalho-menu') {
             return (
                 <div className='site-menu--header__menu-top-container' key='site-menu--header__menu-top-container'>
                     <h2 className='site-menu--header__menu-top-container__title'>Menu</h2>
