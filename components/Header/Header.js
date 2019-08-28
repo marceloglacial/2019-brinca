@@ -22,7 +22,7 @@ const Header = props => {
 
         if (slug === 'menu-topo') {
             return (
-                <div className='site-menu--header__menu-top-container'>
+                <div className='site-menu--header__menu-top-container' key='site-menu--header__menu-top-container'>
                     <h2 className='site-menu--header__menu-top-container__title'>Menu</h2>
                     <div className='site-menu--header__menu-top' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
                 </div>
@@ -34,7 +34,15 @@ const Header = props => {
         }
 
         if (slug === 'language') {
-            return <div className='site-menu--header__language' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
+            const toggleLanguage = e => {
+                let menu = document.querySelector('.site-menu--header__language');
+                let menuClass = menu.className;
+
+                menuClass === 'site-menu--header__language is-open' ? '' : e.preventDefault();
+                menu.classList.toggle('is-open');
+            };
+
+            return <div className='site-menu--header__language' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} onTouchEnd={toggleLanguage} />;
         }
     });
 

@@ -32,6 +32,7 @@
     overflow-x: hidden;
     transform: translateX(300%);
     transition: all 0.3s ease-in-out;
+    background-color: $green;
 
     &.is-open {
         transform: translateX(0%);
@@ -41,6 +42,8 @@
         position: unset;
         transform: unset;
         height: unset;
+        background: unset;
+        padding-top: 1rem;
     }
 }
 
@@ -82,7 +85,6 @@
     width: 100%;
     background: $green;
     padding: 0;
-    margin-top: 1rem;
     flex-direction: column;
     position: relative;
 
@@ -242,6 +244,11 @@
     overflow: hidden;
     transition: all 0.15s ease-in-out;
     position: relative;
+    height: 4rem;
+
+    &.is-open {
+        height: 200px;
+    }
 
     @include media-breakpoint-up(lg) {
         position: absolute;
@@ -251,7 +258,7 @@
         background: $white;
         outline: solid 5px $white;
         width: 150px;
-        height: 50px;
+        height: 40px;
     }
 
     &:hover {
