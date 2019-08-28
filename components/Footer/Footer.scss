@@ -1,3 +1,6 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
 @import '../../styles/variables';
 
 .site-footer {
@@ -7,12 +10,12 @@
     }
 }
 
-.menu-rodape-social {
+.site-footer-social {
     background: $green;
     padding-top: 1rem;
 }
 
-.menu-rodape-social-items {
+.site-footer-social-items {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,12 +44,12 @@
     }
 }
 
-.menu-rodape-items-container {
+.site-footer-menu-container {
     background: $green;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-.menu-rodape-items {
+.site-footer-menu {
     display: flex;
     flex-wrap: wrap;
     width: 60%;
@@ -56,10 +59,16 @@
     p {
         display: flex;
         align-items: center;
-        width: 25%;
+        justify-content: center;
+        width: 100%;
         height: 4rem;
         margin: 0;
         padding: 0 0 0 1rem;
+
+        @include media-breakpoint-up(lg) {
+            justify-content: flex-start;
+            width: 25%;
+        }
 
         &:first-child {
             padding-left: 0;
@@ -82,5 +91,16 @@
     a {
         color: $white;
         transition: all 0.3s ease-in-out;
+    }
+}
+.site-footer-copyright {
+    background-color: $grey;
+ 
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 4rem;
+        font-size: 0.8rem;
     }
 }

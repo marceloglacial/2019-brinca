@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.scss';
-import Link from 'next/link';
 
 const Footer = props => {
     // Get data
@@ -10,35 +9,39 @@ const Footer = props => {
     const rodapeItems = menuItems.map(rodapeItems => {
         const { content, slug } = rodapeItems;
 
-        if (slug === 'menu-rodape-social') {
+        if (slug === 'rodape-social') {
             return (
-                <div className='menu-rodape-social' key='menu-rodape-social'>
-                    <div className='menu-rodape-social-items container' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
+                <div className='site-footer-social' key='site-footer-social'>
+                    <div className='site-footer-social-items container' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
                 </div>
             );
         }
 
-        if (slug === 'menu-rodape') {
+        if (slug === 'rodape-menu') {
             return (
-                <div className='menu-rodape-items-container' key='menu-rodape-items-container'>
-                    <div className='menu-rodape-items container' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
+                <div className='site-footer-menu-container' key='site-footer-menu-container'>
+                    <div className='site-footer-menu container' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
                 </div>
             );
         }
+    });
 
-        if (slug === 'menu-rodape-copyright') {
+    const siteHeaderCopyright = menuItems.map(rodapeItems => {
+        const { content, slug } = rodapeItems;
+
+        if (slug === 'rodape-copyright') {
             return (
-                <div className='menu-rodape-copyright' key='menu-rodape-copyright'>
+                <div className='site-footer-copyright' key='site-footer-copyright'>
                     <div className='container' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
                 </div>
             );
         }
-
     });
 
-    return (    
+    return (
         <>
             <div className='site-footer'>{rodapeItems}</div>
+            {siteHeaderCopyright}
         </>
     );
 };

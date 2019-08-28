@@ -8,7 +8,7 @@ IndexPage.getInitialProps = async function() {
     const siteRes = await fetch('https://public-api.wordpress.com/rest/v1/sites/brincanada.wordpress.com/');
     const siteData = await siteRes.json();
 
-    const navMenuRes = await fetch('https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/pages');
+    const navMenuRes = await fetch('https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/pages/');
     const navMenuData = await navMenuRes.json();
 
     return {
