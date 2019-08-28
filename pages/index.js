@@ -22,6 +22,14 @@ function IndexPage(props) {
         <>
             <HeadComponent siteData={props.siteData} />
             <Header navMenuData={props.navMenuData} siteData={props.siteData} />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <Footer navMenuData={props.navMenuData} />
         </>
     );
