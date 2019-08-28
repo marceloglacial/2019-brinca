@@ -1,0 +1,395 @@
+@import '../../styles/styles';
+
+.site-header {
+    position: relative;
+    margin-top: 1rem;
+
+    ul {
+        padding: 0;
+        list-style: none;
+    }
+}
+
+.site-header .site-logo img {
+    max-width: 150px;
+    height: auto;
+
+    @include media-breakpoint-up(lg) {
+        max-width: 250px;
+    }
+}
+
+.site-header .site-info {
+    display: none;
+}
+.site-menu--header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transform: translateX(300%);
+    transition: all 0.3s ease-in-out;
+    background-color: $green;
+
+    &.is-open {
+        transform: translateX(0%);
+    }
+
+    @include media-breakpoint-up(lg) {
+        position: unset;
+        transform: unset;
+        height: unset;
+        background: unset;
+        padding-top: 1rem;
+    }
+}
+
+.site-menu--header {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    background: $green;
+    padding: 3rem 0;
+
+    @include media-breakpoint-up(lg) {
+        position: unset;
+        transform: unset;
+        background: unset;
+        display: unset;
+        padding: unset;
+        height: unset;
+    }
+}
+
+.site-menu--header__menu-top-container {
+    width: 100%;
+}
+
+.site-menu--header__menu-top-container__title {
+    color: $white;
+    padding: 1rem 0 1rem 2rem;
+    margin: 0;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+}
+
+.site-menu--header__menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: $green;
+    padding: 0;
+    flex-direction: column;
+    position: relative;
+
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $white;
+        opacity: 0.2;
+    }
+
+    @include media-breakpoint-up(lg) {
+        flex-direction: row;
+        height: 3rem;
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.site-menu--header__menu-top p {
+    height: 65px;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $white;
+        opacity: 0.2;
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 100%;
+
+        &:after {
+            display: none;
+        }
+
+        &:before {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 0%;
+            content: '';
+            background: $white;
+            transition: all 0.1s ease-in-out;
+            z-index: 0;
+            bottom: 0;
+
+            @include media-breakpoint-up(lg) {
+                background: rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        &:hover:before {
+            height: 100%;
+        }
+    }
+}
+
+.site-menu--header__menu-top p a {
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 10;
+    transition: all 0.2s ease-in-out;
+    font-size: 120%;
+
+    @include media-breakpoint-up(lg) {
+        justify-content: center;
+        font-size: 100%;
+    }
+
+    &:after {
+        display: block;
+        position: absolute;
+        height: 0px;
+        width: 100%;
+        content: '';
+        background: rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+        bottom: 0;
+    }
+
+    &:hover {
+        text-decoration: none;
+
+        &:after {
+            height: 7px;
+        }
+    }
+}
+
+.site-menu--header__telephone {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 4rem;
+    padding-left: 4rem;
+    color: $white;
+    width: 100%;
+
+    // TODO: Fix icon
+    background: 2rem center no-repeat url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxnPiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPiAgPHJlY3QgZmlsbD0ibm9uZSIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjQwMiIgd2lkdGg9IjU4MiIgeT0iLTEiIHg9Ii0xIi8+IDwvZz4gPGc+ICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+ICA8cGF0aCBpZD0ic3ZnXzIiIGZpbGw9IiNmZmZmZmYiIGQ9Im0xOC4zMDg1OSwxNS4yNTE5NWMtMC4zNzAxMSwwIC0wLjYwNTQ2LDAuMTU4MjEgLTAuNzM4MjgsMC4yOTEwMmwtMS40ODM0LDEuNDg0MzdjLTAuMDExNzEsMC4wMTE3MiAtMC4wNzUxOSwwLjA0Mjk3IC0wLjIyMTY4LDAuMDQyOTdjLTAuODE3MzgsMCAtMi41NTI3MywtMC45MDkxOCAtNC4yODkwNiwtMi42NDY0OGMtMi4zMzM5OCwtMi4zMzMwMSAtMi44NDg2MywtNC4yNjU2MyAtMi42MDM1MSwtNC41MTA3NGwxLjQ4NDM3LC0xLjQ4MzRjMC45Nzg1MiwtMC45Nzg1MiAtMC43NTI5MywtMy4wMDE5NiAtMS44NzIwNywtNC4xMjExYy0wLjUwNzgxLC0wLjUwNzgxIC0yLjI1MDk4LC0yLjE2MzA4IC0zLjM4MTgzLC0yLjE2MzA4Yy0wLjM3MDEyLDAgLTAuNjA1NDcsMC4xNTgyIC0wLjczODI5LDAuMjkxMDFsLTIuOTY4NzUsMi45Njg3NWMtMC44OTA2MiwwLjg5MDYzIC0wLjU3MzI0LDIuNjIwMTIgMC45NDUzMiw1LjEzOTY1YzEuMzEwNTQsMi4xNzU3OCAzLjM4MjgxLDQuNzI0NjEgNS44MzU5Myw3LjE3Nzc0YzMuNjIyMDcsMy42MjIwNyA4LjQyMTg4LDcuMjc3MzQgMTAuOTc5NSw3LjI3NzM0bDAuMDAwOTcsMGMwLjY5NTMyLDAgMS4xMTEzMywtMC4yNjk1MyAxLjMzNjkyLC0wLjQ5NjA5bDIuOTY4NzUsLTIuOTY4NzVjMC45Nzg1MSwtMC45Nzc1NCAtMC43NTI5MywtMy4wMDA5OCAtMS44NzIwNywtNC4xMjAxMmMtMC41MDc4MiwtMC41MDc4MSAtMi4yNTA5OCwtMi4xNjMwOSAtMy4zODI4MiwtMi4xNjMwOXptMS4yMjU1OSw4LjE5MTQxYy0wLjAyMTQ4LDAuMDIxNDggLTAuMTAzNTIsMC4wNTY2NCAtMC4yNzczNCwwLjA1NjY0Yy0xLjQ5MzE3LDAgLTUuNDc3NTQsLTIuMzk2NDggLTkuOTE4OTUsLTYuODM3ODljLTIuMzY5MTQsLTIuMzY5MTQgLTQuMzYyMywtNC44MTY0MSAtNS42MTIzLC02Ljg5MDYzYy0xLjM5NjQ5LC0yLjMxOTMzIC0xLjI3NzM1LC0zLjE5NzI2IC0xLjE2ODk1LC0zLjMwNTY2bDIuNzc2MzcsLTIuNzc2MzdjMC4zNzAxMiwwLjE1MTM3IDEuMTk5MjIsMC42ODc1IDIuMTkxNCwxLjY3OTY5YzAuOTkzMTcsMC45OTMxNiAxLjUyODMyLDEuODIyMjcgMS42Nzk2OSwyLjE5MTQxbC0xLjI5MTk5LDEuMjkxOTljLTEuMzgzNzksMS4zODU3NCAwLjM3OTg4LDQuNDA5MTggMi42MDM1Miw2LjYzMTg0YzEuOTAyMzQsMS45MDMzMiAzLjk1MjE0LDMuMDg1OTMgNS4zNDk2LDMuMDg1OTNjMC42NjAxNiwwIDEuMDYxNTMsLTAuMjYxNzIgMS4yODIyMywtMC40ODI0MmwxLjI5MTk5LC0xLjI5MTk5YzAuMzY5MTQsMC4xNTEzNyAxLjE5ODI1LDAuNjg2NTIgMi4xOTE0MSwxLjY3OTY5YzAuOTkyMTksMC45OTMxNiAxLjUyODMyLDEuODIxMjkgMS42Nzk2OSwyLjE5MTRsLTIuNzc2MzcsMi43NzYzN3oiLz4gIDxwYXRoIGlkPSJzdmdfMyIgZmlsbD0iI2ZmZmZmZiIgZD0ibTIyLjQ2NjgsMy41MzMyYy0xLjYzMjgyLC0xLjYzMzc5IC0zLjgwNjY0LC0yLjUzMzIgLTYuMTIwMTIsLTIuNTMzMmMtMC4wMDA5OCwwIC0wLjAwMTk1LDAgLTAuMDAxOTUsMGMtMC40MTQwNywwIC0wLjc1LDAuMzM1OTQgLTAuNzUsMC43NXMwLjMzNTkzLDAuNzUgMC43NSwwLjc1YzAuMDAwOTcsMCAwLjAwMDk3LDAgMC4wMDE5NSwwYzEuOTEzMDksMCAzLjcwOTk2LDAuNzQzMTYgNS4wNTk1NywyLjA5Mzc1YzEuMzUwNTksMS4zNTA1OSAyLjA5Mzc1LDMuMTQ3NDYgMi4wOTM3NSw1LjA2MTUyYzAsMC40MTQwNyAwLjMzNTk0LDAuNzUgMC43NSwwLjc1czAuNzUsLTAuMzM1OTMgMC43NSwtMC43NWMwLjAwMDk4LC0yLjMxNDQ1IC0wLjg5OTQxLC00LjQ4ODI4IC0yLjUzMzIsLTYuMTIyMDd6Ii8+ICA8cGF0aCBpZD0ic3ZnXzQiIGZpbGw9IiNmZmZmZmYiIGQ9Im0xNS4zNTU0Nyw1LjQ2NTgyYzAuMDAwOTgsMCAwLjAwMDk4LDAgMC4wMDE5NSwwYzEuMzg0NzcsMCAyLjY4NDU3LDAuNTM4MDkgMy42NjIxMSwxLjUxNDY1YzAuOTc2NTYsMC45Nzc1NCAxLjUxNDY1LDIuMjc4MzIgMS41MTQ2NSwzLjY2NDA2YzAsMC40MTQwNiAwLjMzNTk0LDAuNzUgMC43NSwwLjc1czAuNzUsLTAuMzM1OTQgMC43NSwtMC43NWMwLjAwMDk4LC0xLjc4NjEzIC0wLjY5MzM2LC0zLjQ2Mzg3IC0xLjk1NDEsLTQuNzI0NjFjLTEuMjYwNzQsLTEuMjU5NzYgLTIuOTM3NSwtMS45NTQxIC00LjcyMjY2LC0xLjk1NDFjLTAuMDAwOTcsMCAtMC4wMDE5NSwwIC0wLjAwMTk1LDBjLTAuNDE0MDYsMCAtMC43NSwwLjMzNTk0IC0wLjc1LDAuNzVzMC4zMzU5NCwwLjc1IDAuNzUsMC43NXoiLz4gIDxwYXRoIGlkPSJzdmdfNSIgZmlsbD0iI2ZmZmZmZiIgZD0ibTE0LjM2NjIxLDguNDMxNjRjMC4wMDA5OCwwIDAuMDAwOTgsMCAwLjAwMTk1LDBjMC44NTU0NywwIDEuNjYwMTYsMC4zMzMwMSAyLjI2MzY4LDAuOTM2NTJjMC42MDQ0OSwwLjYwNDUgMC45MzY1MiwxLjQwOTE4IDAuOTM2NTIsMi4yNjU2M2MwLDAuNDE0MDYgMC4zMzU5NCwwLjc1IDAuNzUsMC43NXMwLjc1LC0wLjMzNTk0IDAuNzUsLTAuNzVjMC4wMDA5OCwtMS4yNTY4NCAtMC40ODgyOCwtMi40Mzg0OCAtMS4zNzU5OCwtMy4zMjYxN2MtMC44ODY3MiwtMC44ODc3IC0yLjA2NzM4LC0xLjM3NTk4IC0zLjMyNDIyLC0xLjM3NTk4Yy0wLjAwMDk3LDAgLTAuMDAxOTUsMCAtMC4wMDE5NSwwYy0wLjQxNDA2LDAgLTAuNzUsMC4zMzU5NCAtMC43NSwwLjc1czAuMzM1OTQsMC43NSAwLjc1LDAuNzV6Ii8+IDwvZz48L3N2Zz4=);
+    background-size: 20px;
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        color: $white;
+    }
+
+    @include media-breakpoint-up(lg) {
+        background: url('/static/ico-phone.png') no-repeat;
+        background-size: 30px;
+        padding-left: 2.5rem;
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        height: 2rem;
+        transform: translateX(-50%);
+        color: $black;
+        justify-content: center;
+        width: unset;
+
+        a {
+            color: $black;
+            &:hover {
+                text-decoration: none;
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.site-menu--header__language {
+    line-height: 0;
+    overflow: hidden;
+    transition: all 0.15s ease-in-out;
+    position: relative;
+    height: 4rem;
+
+    &.is-open {
+        height: 200px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        position: absolute;
+        z-index: 100;
+        top: 2rem;
+        right: 1rem;
+        background: $white;
+        outline: solid 5px $white;
+        width: 150px;
+        height: 40px;
+    }
+
+    &:hover {
+        height: 120px;
+    }
+
+    &::before,
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $white;
+        opacity: 0.2;
+    }
+
+    &::before {
+        top: unset;
+        bottom: 0;
+    }
+}
+
+.language__item {
+    margin: 0 0 0 2rem;
+    padding: 0;
+    background: no-repeat left center;
+    background-size: 30px;
+    position: relative;
+
+    &:not(:first-child):after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -2rem;
+        width: calc(100% + 2rem);
+        height: 2px;
+        background-color: $white;
+        opacity: 0.2;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin: 0;
+        background: no-repeat right center;
+        background-size: 30px;
+    }
+
+    &--english {
+        background-image: url('/static/flag-canada.svg');
+
+        a:hover:after {
+            background-color: $red;
+        }
+    }
+    &--french {
+        background-image: url('/static/flag-france.svg');
+        a:hover:after {
+            background-color: $blue;
+        }
+    }
+    &--portugues {
+        background-image: url('/static/flag-brazil.svg');
+        a:hover:after {
+            background-color: $green;
+        }
+    }
+}
+
+.language__item a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 4rem;
+    padding: 0 0 0 3rem;
+    color: $white;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+        height: 40px;
+        color: $black;
+        justify-content: flex-end;
+        padding: 0 3rem 0 0;
+
+        &::after {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            content: '';
+            width: 0px;
+            height: 3px;
+            background-color: $red;
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:hover::after {
+            width: 30px;
+        }
+    }
+}
+
+.site-menu--header__button {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url('/static/menu-button.svg') no-repeat center center;
+    background-size: 1.5rem;
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    right: 1.3rem;
+    z-index: 100;
+    border: none;
+    transition: background-image 0.3s ease-in-out;
+
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+
+    &.is-open {
+        background-image: url('/static/menu-button-close.svg');
+        background-size: 15px;
+        background-color: $green;
+        border-radius: 100%;
+        box-shadow: 0 0 10px 0px rgba($black, 0.1);
+    }
+}
