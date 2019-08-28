@@ -40,7 +40,7 @@ const Header = props => {
 
     // Open/Close Mobile menu
     const toggleMenu = () => {
-        let menu = document.querySelector('.site-menu--header');
+        let menu = document.querySelector('.site-menu--header-container');
         let button = document.querySelector('.site-menu--header__button');
 
         menu.classList.toggle('is-open');
@@ -61,7 +61,9 @@ const Header = props => {
                     <h1 className='site-info__title'>{siteName}</h1>
                     <p className='site-info__description'>{siteDescription}</p>
                 </div>
-                <div className='site-menu--header'>{navMenuItems}</div>
+                <div className='site-menu--header-container'>
+                    <div className='site-menu--header'>{navMenuItems}</div>
+                </div>
                 <button className='site-menu--header__button' onClick={toggleMenu} />
             </header>
         </>
