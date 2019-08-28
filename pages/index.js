@@ -1,6 +1,7 @@
 import React from 'react';
 import HeadComponent from '../components/Head/Head';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import fetch from 'isomorphic-unfetch';
 
 IndexPage.getInitialProps = async function() {
@@ -12,7 +13,7 @@ IndexPage.getInitialProps = async function() {
 
     return {
         siteData,
-        navMenuData,
+        navMenuData
     };
 };
 
@@ -21,6 +22,13 @@ function IndexPage(props) {
         <>
             <HeadComponent siteData={props.siteData} />
             <Header navMenuData={props.navMenuData} siteData={props.siteData} />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <Footer navMenuData={props.navMenuData} />
         </>
     );
 }
