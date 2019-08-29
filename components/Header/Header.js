@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Header = props => {
     // Get data
-    const menuItems = props.navMenuData;
+    const menuItems = props.pagesData;
     const siteItems = props.siteData;
     const { name: siteName, description: siteDescription } = siteItems;
 

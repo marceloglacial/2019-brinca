@@ -3,7 +3,7 @@ import './Footer.scss';
 
 const Footer = props => {
     // Get data
-    const menuItems = props.navMenuData;
+    const menuItems = props.pagesData;
 
     // Display Menu items
     const rodapeItems = menuItems.map(rodapeItems => {
