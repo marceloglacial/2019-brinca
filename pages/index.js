@@ -27,11 +27,12 @@ IndexPage.getInitialProps = async function() {
 };
 
 function IndexPage(props) {
+
     return (
         <>
             <HeadComponent siteData={props.siteData} />
             <Header pagesData={props.pagesData} siteData={props.siteData} />
-            <Hero data={props.postsData} />
+            <Hero postsData={props.postsData} catData={props.catData}  />
             <Footer pagesData={props.pagesData} />
         </>
     );
