@@ -1,0 +1,67 @@
+@import '../../styles/core';
+
+.hero a {
+    text-decoration: none;
+}
+
+.hero__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    @include media-breakpoint-up(lg) {
+        padding-top: 16rem;
+        padding-bottom: 16rem;
+    }
+}
+
+.hero__info {
+    z-index: 10;
+    color: $white;
+    max-width: 90%;
+    margin: 0 auto;
+
+    @include media-breakpoint-up(lg) {
+        max-width: 50%;
+        margin: 0;
+
+        &:hover .hero__title,
+        &:hover .hero__description {
+            background: $yellow;
+            transform: translateY(-2px);
+            box-shadow: -10px 10px 1px rgba($black, 0.9);
+        }
+    }
+}
+
+.hero__title,
+.hero__description {
+    display: inline-block;
+    background: rgba($white, 0.8);
+    color: $black;
+    padding: 1rem;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.hero__title {
+    padding-bottom: 0rem;
+}
+
+.hero__description p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    font-size: 1.2rem;
+}

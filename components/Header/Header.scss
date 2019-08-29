@@ -38,6 +38,7 @@
 }
 .site-menu--header-container {
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
     height: 100vh;
@@ -389,6 +390,7 @@
     background-size: 1.5rem;
     content: '';
     position: absolute;
+    z-index: 101;
     top: 0.5rem;
     right: 1.3rem;
     z-index: 100;
