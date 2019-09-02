@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from 'react-bootstrap/Carousel';
 import './Hero.scss';
 
 const Hero = props => {
@@ -30,27 +31,30 @@ const Hero = props => {
             let style = {
                 background: `url(${jetpack_featured_media_url}) no-repeat center 30%`,
                 backgroundColor: `black`,
-                backgroundSize: `cover`,
+                backgroundSize: `cover`
             };
 
             return (
-                <a href={permalink} key={permalink}>
-                    <div className='hero__item' key={id} style={style}>
-                        <div className='container'>
-                            <div className='hero__info'>
-                                <h1 className='hero__title' dangerouslySetInnerHTML={{ __html: title.rendered }} key={title.rendered} />
-                                <div className='hero__description' dangerouslySetInnerHTML={{ __html: excerpt.rendered }} key={excerpt.rendered} />
+                <Carousel.Item key={`carousel-${permalink}`}>
+                    <a href={permalink} key={permalink}>
+                        {/* <img className='d-block w-100' src={jetpack_featured_media_url} alt='' /> */}
+                        <div className=' hero__item' style={style}>
+                            <div className='container'>
+                                <div className='hero__info'>
+                                    <h1 className='hero__title' dangerouslySetInnerHTML={{ __html: title.rendered }} key={title.rendered} />
+                                    <div className='hero__description' dangerouslySetInnerHTML={{ __html: excerpt.rendered }} key={excerpt.rendered} />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </Carousel.Item>
             );
         }
     });
 
     return (
         <div className='hero' key='hero'>
-            {heroItems}
+            <Carousel>{heroItems}</Carousel>
         </div>
     );
 };
