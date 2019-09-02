@@ -12,7 +12,7 @@ const Subscribe = props => {
 
         if (slug === 'associe-se') {
             return (
-                <div className='subscribe container'>
+                <div className='subscribe container' key='subscribe'>
                     <div className='subscribe__info'>
                         <h3 className='subscribe__title'>{title.rendered}</h3>
                         <div className='subscribe__text' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
