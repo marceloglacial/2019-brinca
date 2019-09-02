@@ -6,9 +6,10 @@ import Footer from '../components/Footer/Footer';
 import fetch from 'isomorphic-unfetch';
 
 IndexPage.getInitialProps = async function() {
+    const siteDomain = `https://public-api.wordpress.com`
     const siteURl = `brincanada.wordpress.com`
-    const siteAPIv1 = `https://public-api.wordpress.com/rest/v1/sites/${siteURl}`
-    const siteAPIv2 = `https://public-api.wordpress.com/wp/v2/sites/${siteURl}`
+    const siteAPIv1 = `${siteDomain}/rest/v1/sites/${siteURl}`
+    const siteAPIv2 = `${siteDomain}/wp/v2/sites/${siteURl}`
 
     const siteRes = await fetch(siteAPIv1);
     const siteData = await siteRes.json();
