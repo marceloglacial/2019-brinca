@@ -32,7 +32,14 @@ const Footer = props => {
         if (slug === 'rodape-copyright') {
             return (
                 <div className='site-footer-copyright' key='site-footer-copyright'>
-                    <div className='container' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
+                    <div className='site-footer-copyright__items container'>
+                        <div dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
+                        <div className='site-footer-copyright__developer'>
+                            <p>
+                                Developed by <a href='http://marceloglacial.com/'>Marcelo Glacial</a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             );
         }
