@@ -3,43 +3,67 @@
 .subscribe {
     padding-top: 4rem;
     padding-bottom: 4rem;
+    text-align: center;
 
     display: flex;
-
-    &__info {
-        max-width: 50%;
-        padding-right: 2rem;
-    }
-
-    &__title {
-        font-size: 200%;
-    }
+    flex-direction: column;
 
     &__text {
         padding-top: 1rem;
-        font-size: 110%;
-        line-height: 180%;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+        flex-direction: row;
+        text-align: left;
+
+        &__title {
+            font-size: 200%;
+        }
+    
+        &__text {
+            font-size: 110%;
+            line-height: 180%;
+        }
+
+        &__info {
+            max-width: 50%;
+            padding-right: 2rem;
+        }
     }
 }
+
 .subscribe__form {
-    width: 40%;
     padding-top: 2rem;
+
+    @include media-breakpoint-up(lg) {
+        width: 40%;
+    }
 }
 
-.subscribe__form  form {
+.subscribe__form form {
     display: flex;
     flex-direction: column;
-    margin-left: 4rem;
-    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+        margin-left: 4rem;
+        width: 100%;
+    }
 
     input {
         border: solid 2px $green;
         border-radius: 5px;
-        padding: 1rem;
+        padding: 0.7rem;
         margin-bottom: 1rem;
 
         &::placeholder {
             color: $grey-dark;
+        }
+        @include media-breakpoint-up(lg) {
+            padding: 1rem;
         }
     }
 }
