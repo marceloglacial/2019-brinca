@@ -4,35 +4,29 @@ import Link from 'next/link';
 
 const Header = props => {
     // Get data
-    const menuItems = props.pagesData;
+    const headerItems = props.pagesData;
     const siteItems = props.siteData;
     const { name: siteName, description: siteDescription } = siteItems;
 
     // Display Logo
-    const siteLogo = menuItems.map(siteLogo => {
+    const siteLogo = headerItems.map(siteLogo => {
         const { content, slug } = siteLogo;
         if (slug === 'header-logo') {
             return <div className='site-logo' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
         }
     });
 
-    // Display Menu items
-    const navMenuItems = menuItems.map(navMenuItems => {
-        const { content, slug } = navMenuItems;
-
-        if (slug === 'cabecalho-menu-items') {
-            return (
-                <div className='site-menu--header__menu-top-container' key='site-menu--header__menu-top-container'>
-                    <h2 className='site-menu--header__menu-top-container__title'>Menu</h2>
-                    <div className='site-menu--header__menu-top' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
-                </div>
-            );
-        }
-
+    // Display Telephone
+    const headerTelephone = headerItems.map(telephone => {
+        const { content, slug } = telephone;
         if (slug === 'telephone') {
             return <div className='site-menu--header__telephone' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />;
         }
+    });
 
+    // Display Language picker
+    const languagePicker = headerItems.map(language => {
+        const { content, slug } = language;
         if (slug === 'language') {
             const toggleLanguage = e => {
                 let menu = document.querySelector('.site-menu--header__language');
@@ -43,6 +37,20 @@ const Header = props => {
             };
 
             return <div className='site-menu--header__language' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} onTouchEnd={toggleLanguage} />;
+        }
+    });
+
+    // Display Menu items
+    const navheaderItems = headerItems.map(navheaderItems => {
+        const { content, slug } = navheaderItems;
+
+        if (slug === 'cabecalho-menu-items') {
+            return (
+                <div className='site-menu--header__menu-top-container' key='site-menu--header__menu-top-container'>
+                    <h2 className='site-menu--header__menu-top-container__title'>Menu</h2>
+                    <div className='site-menu--header__menu-top' dangerouslySetInnerHTML={{ __html: content.rendered }} key={slug} />
+                </div>
+            );
         }
     });
 
@@ -70,7 +78,11 @@ const Header = props => {
                     <p className='site-info__description'>{siteDescription}</p>
                 </div>
                 <div className='site-menu--header-container'>
-                    <div className='site-menu--header'>{navMenuItems}</div>
+                    <div className='site-menu--header'>
+                        {navheaderItems}
+                        {languagePicker}
+                        {headerTelephone}
+                    </div>
                 </div>
                 <button className='site-menu--header__button' onClick={toggleMenu} />
             </header>

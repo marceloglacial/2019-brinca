@@ -67,7 +67,7 @@
 
 .site-menu--header {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: flex-end;
     background: $green;
     padding: 3rem 0;
@@ -190,24 +190,23 @@
     @include media-breakpoint-up(lg) {
         justify-content: center;
         font-size: 100%;
-    }
-
-    &:after {
-        display: block;
-        position: absolute;
-        height: 0px;
-        width: 100%;
-        content: '';
-        background: rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-        bottom: 0;
-    }
-
-    &:hover {
-        text-decoration: none;
-
         &:after {
-            height: 7px;
+            display: block;
+            position: absolute;
+            height: 0px;
+            width: 100%;
+            content: '';
+            background: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            bottom: 0;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            &:after {
+                height: 7px;
+            }
         }
     }
 }
@@ -283,8 +282,7 @@
         height: 120px;
     }
 
-    &::before,
-    &:after {
+    &::before {
         display: block;
         content: '';
         position: absolute;
