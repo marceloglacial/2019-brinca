@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import Link from 'next/link';
 import './Hero.scss';
 
 const Hero = props => {
@@ -36,17 +37,19 @@ const Hero = props => {
 
             return (
                 <Carousel.Item key={`carousel-${permalink}`}>
-                    <a href={permalink} key={permalink}>
-                        {/* <img className='d-block w-100' src={jetpack_featured_media_url} alt='' /> */}
-                        <div className=' hero__item' style={style}>
-                            <div className='container'>
-                                <div className='hero__info'>
-                                    <h1 className='hero__title' dangerouslySetInnerHTML={{ __html: title.rendered }} key={title.rendered} />
-                                    <div className='hero__description' dangerouslySetInnerHTML={{ __html: excerpt.rendered }} key={excerpt.rendered} />
+                    <Link href={permalink}>
+                        <a key={permalink}>
+                            {/* <img className='d-block w-100' src={jetpack_featured_media_url} alt='' /> */}
+                            <div className=' hero__item' style={style}>
+                                <div className='container'>
+                                    <div className='hero__info'>
+                                        <h1 className='hero__title' dangerouslySetInnerHTML={{ __html: title.rendered }} key={title.rendered} />
+                                        <div className='hero__description' dangerouslySetInnerHTML={{ __html: excerpt.rendered }} key={excerpt.rendered} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </Link>
                 </Carousel.Item>
             );
         }
