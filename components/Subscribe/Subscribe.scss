@@ -1,0 +1,50 @@
+@import '../../styles/core';
+
+.subscribe {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    display: flex;
+
+    &__info {
+        max-width: 50%;
+        padding-right: 2rem;
+    }
+
+    &__title {
+        font-size: 200%;
+    }
+
+    &__text {
+        padding-top: 1rem;
+        font-size: 110%;
+        line-height: 180%;
+    }
+}
+.subscribe__form {
+    width: 40%;
+    padding-top: 2rem;
+}
+
+.subscribe__form  form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4rem;
+    width: 100%;
+
+    input {
+        border: solid 2px $green;
+        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+
+        &::placeholder {
+            color: $grey-dark;
+        }
+    }
+}
+
+.subscribe__input.subscribe__input--submit {
+    background: $green;
+    color: $white;
+}

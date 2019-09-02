@@ -3,6 +3,7 @@ import HeadComponent from '../components/Head/Head';
 import Header from '../components/Header/Header';
 import Hero from '../components/Hero/Hero';
 import Footer from '../components/Footer/Footer';
+import Subscribe from '../components/Subscribe/Subscribe';
 import fetch from 'isomorphic-unfetch';
 
 IndexPage.getInitialProps = async function() {
@@ -38,6 +39,7 @@ function IndexPage(props) {
             <HeadComponent siteData={props.siteData} />
             <Header pagesData={props.pagesData} siteData={props.siteData} />
             <Hero postsData={props.postsData} catData={props.catData}  />
+            <Subscribe pagesData={props.pagesData} />
             <Footer pagesData={props.pagesData} />
         </>
     );
