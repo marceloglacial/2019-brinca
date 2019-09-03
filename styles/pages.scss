@@ -1,0 +1,17 @@
+@import './gutemberg.scss';
+@import './core';
+
+.page__content {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.page__title {
+    padding: 3rem 0;
+    background: rgba($yellow, 0.9);
+}
