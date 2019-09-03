@@ -32,12 +32,13 @@ const Hero = props => {
             let style = {
                 background: `url(${jetpack_featured_media_url}) no-repeat center 30%`,
                 backgroundColor: `black`,
-                backgroundSize: `cover`
+                backgroundSize: `cover`,
+                objectFit: `cover`
             };
 
             return (
                 <Carousel.Item key={`carousel-${permalink}`}>
-                    <Link href={permalink}>
+                    <Link href={`/eventos${permalink}`}>
                         <a key={permalink}>
                             {/* <img className='d-block w-100' src={jetpack_featured_media_url} alt='' /> */}
                             <div className=' hero__item' style={style}>

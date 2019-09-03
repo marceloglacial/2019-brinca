@@ -15,7 +15,7 @@
 
     @include media-breakpoint-up(lg) {
         padding-top: 16rem;
-        padding-bottom: 16rem;
+        padding-bottom: 10rem;
     }
 }
 
@@ -28,6 +28,7 @@
     @include media-breakpoint-up(lg) {
         max-width: 50%;
         margin: 0;
+        padding-top: 6rem;
 
         &:hover .hero__title,
         &:hover .hero__description {
