@@ -1,66 +1,31 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
-import Link from 'next/link';
 import './Hero.scss';
+import Link from 'next/link';
+import { Carousel } from 'react-responsive-carousel';
+// Reference: https://www.npmjs.com/package/react-responsive-carousel
 
-const Hero = props => {
-    // Get data
-    const posts = props.postsData;
-    const cats = props.catData;
-
-    // Find hero cat id
-    const heroCat = cats.map(heroCat => {
-        const { id, slug } = heroCat;
-
-        if (slug === 'destaques') {
-            return id;
-        }
-    });
-
-    // Display Hero items
-    const heroItems = posts.map(heroItems => {
-        const { id, excerpt, title, categories, jetpack_featured_media_url, slug } = heroItems;
-
-        // Has hightlight category?
-        let isHighlight = categories.find(function(element) {
-            return parseInt(element) === parseInt(heroCat);
-        });
-
-        // Show only highlighted posts
-        if (isHighlight) {
-            let permalink = '/' + slug;
-            let style = {
-                background: `url(${jetpack_featured_media_url}) no-repeat center 30%`,
-                backgroundColor: `black`,
-                backgroundSize: `cover`,
-                objectFit: `cover`
-            };
-
-            return (
-                <Carousel.Item key={`carousel-${permalink}`}>
-                    <Link href={`/eventos${permalink}`}>
-                        <a key={permalink}>
-                            {/* <img className='d-block w-100' src={jetpack_featured_media_url} alt='' /> */}
-                            <div className=' hero__item' style={style}>
-                                <div className='container'>
-                                    <div className='hero__info'>
-                                        <h1 className='hero__title' dangerouslySetInnerHTML={{ __html: title.rendered }} key={title.rendered} />
-                                        <div className='hero__description' dangerouslySetInnerHTML={{ __html: excerpt.rendered }} key={excerpt.rendered} />
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </Link>
-                </Carousel.Item>
-            );
-        }
-    });
-
-    return (
-        <div className='hero' key='hero'>
-            <Carousel>{heroItems}</Carousel>
-        </div>
-    );
-};
+const Hero = () => (
+    <div className='site-hero'>
+        {/* <Link href='/'>
+            <a>
+                <h1>Site Title</h1>
+            </a>
+        </Link> */}
+        <Carousel showThumbs={false} showStatus={false}>
+            <div className='slide'>
+                <img src='https://brincanada.files.wordpress.com/2019/08/67198645_2280707095513327_1183111443910754304_o.jpg' />
+                <div className='legend'>Legend 1</div>
+            </div>
+            <div className='slide'>
+                <img src='https://brincanada.files.wordpress.com/2019/08/67198645_2280707095513327_1183111443910754304_o.jpg' />
+                <div className='legend'>Legend 1</div>
+            </div>
+            <div className='slide'>
+                <img src='https://brincanada.files.wordpress.com/2019/08/67198645_2280707095513327_1183111443910754304_o.jpg' />
+                <div className='legend'>Legend 1</div>
+            </div>
+        </Carousel>
+    </div>
+);
 
 export default Hero;
