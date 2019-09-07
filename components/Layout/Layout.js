@@ -5,7 +5,7 @@ import './Layout.scss';
 const Layout = props => (
     <>
         <Header {...props} />
-        <main className='site-layout container'>{props.children}</main>
+        <main className='site-layout'>{props.children}</main>
         <Footer />
     </>
 );

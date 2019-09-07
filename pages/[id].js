@@ -14,9 +14,9 @@ const Post = props => {
             <Layout data={props.menu}>
                 <article className='article-container con'>
                     <header className='article-header'>
-                        <h2 className='article-header__title'>{data.title.rendered}</h2>
+                        <h2 className='article-header__title container'>{data.title.rendered}</h2>
                     </header>
-                    <section className='article-content' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
+                    <section className='article-content container' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
                 </article>
             </Layout>
         </>

@@ -4,7 +4,7 @@ import Nav from '../Nav/Nav';
 import './Header.scss';
 
 const Header = props => (
-    <header className='container'>
+    <header>
         <div className='site-header'>
             <Logo />
             <Nav {...props} />

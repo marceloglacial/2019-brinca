@@ -10,7 +10,7 @@ const Nav = props => {
     const nav = props.data;
 
     const navitens = (
-        <ul className='site-nav--header__items'>
+        <ul className='site-nav--header__items container'>
             {nav.map(post => (
                 <li className='site-nav--header__item' key={post.id}>
                     <Link href='[id]' as={`${post.slug}`}>

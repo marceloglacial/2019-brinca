@@ -1,11 +1,14 @@
+.site-nav--header {
+    background: var(--green);
+}
 .site-nav--header__items {
     display: flex;
     padding: 0;
     list-style: none;
     width: 100%;
     justify-content: space-around;
-    background: var(--green);
-    margin: 1rem 0 0 0;
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 .site-nav--header__item {
     display: flex;
