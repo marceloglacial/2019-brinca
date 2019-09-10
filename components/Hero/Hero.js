@@ -16,7 +16,7 @@ const Hero = props => {
                             <img className='sile__image' src={post.jetpack_featured_media_url} />
                             <div className='slide__legend container'>
                                 <h1 className='slide__title'>{post.title.rendered}</h1>
-                                <p className='slide__description' dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} key={`slide-${post.slug}`} />
+                                <div className='slide__description' dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} key={`slide-${post.slug}`} />
                             </div>
                         </a>
                     </Link>

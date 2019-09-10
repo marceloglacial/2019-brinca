@@ -12,7 +12,7 @@ const Post = props => {
                 <title>Brinca: {data.title.rendered}</title>
             </Head>
             <Layout data={props.menu}>
-                <article className='article-container con'>
+                <article className='article-container'>
                     <header className='article-header'>
                         <h2 className='article-header__title container'>{data.title.rendered}</h2>
                     </header>
