@@ -10,20 +10,22 @@ const Home = props => (
             <title>Brinca - Descrição do site</title>
         </Head>
         <Layout data={props.menu}>
-            <Hero />
+            <Hero data={props.posts} />
         </Layout>
     </>
 );
 Home.getInitialProps = async function() {
     // Posts
-    // const { id } = context.query;
-    // const res = await fetch(`${endpoints.posts}?slug=${id}`);
-    // const json = await res.json();
+    const resPosts = await fetch(`${endpoints.posts}?categories=2366`);
+    const jsonPosts = await resPosts.json();
 
     // Menus
     const resMenu = await fetch(endpoints.menu);
     const jsonMenu = await resMenu.json();
-    return { menu: jsonMenu };
+    return {
+        menu: jsonMenu,
+        posts: jsonPosts
+    };
 };
 
 export default Home;

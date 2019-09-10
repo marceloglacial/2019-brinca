@@ -38,9 +38,25 @@
 }
 .slide__title,
 .slide__description {
-    display: inline-block;
-    padding: 1rem;
-    margin: 0 0 -1px 0;
+    max-width: 50%;
+    text-align: left;
     background: var(--white);
     transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.slide__title {
+    padding: 1rem 1.5rem 0 1.5rem;
+    margin: 0 0 -1px 0;
+}
+.slide__description {
+    padding: 1.5rem;
+    margin: 0;
+}
+.slide__description p {
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
