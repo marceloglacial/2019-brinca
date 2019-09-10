@@ -1,5 +1,5 @@
 const siteConfig = {
     url: '/',
-    favicon: 'static/favicon.ico'
+    favicon: 'static/favicon.png'
 }
 export default siteConfig

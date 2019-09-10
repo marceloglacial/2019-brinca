@@ -1,5 +1,5 @@
 import React from 'react';
-import siteConfig from '../../global/global';
+import siteConfig from '../../components/Global/Global';
 import Head from 'next/head';
 import Link from 'next/link';
 

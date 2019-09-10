@@ -1,8 +1,5 @@
-// Global variables
-:root {
-    --green: green;
-    --green-hover: rgba(0, 255, 0, 0.5);
-}
+@import '../../components/Global/Global.scss';
+
 .site-header {
     background: var(--white);
 }

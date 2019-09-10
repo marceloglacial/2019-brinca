@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import './Logo.scss';
-import siteConfig from '../../global/global';
+import siteConfig from '../../components/Global/Global';
 
 const Logo = () => (
     <div className='site-logo container'>

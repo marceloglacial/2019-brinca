@@ -7,7 +7,7 @@ import endpoints from '../endpoints';
 const Home = props => (
     <>
         <Head>
-            <title>Home</title>
+            <title>Brinca - Descrição do site</title>
         </Head>
         <Layout data={props.menu}>
             <Hero />
