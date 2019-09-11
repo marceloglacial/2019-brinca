@@ -3,6 +3,7 @@ import Layout from '../components/Layout/Layout';
 import fetch from 'isomorphic-unfetch';
 import Cards from '../components/Cards/Cards';
 import ContactForm from '../components/ContactForm/ContactForm';
+import Subscription from '../components/Subscription/Subscription';
 import siteConfig from '../components/Global/Global';
 
 const ExtraContent = props => {
@@ -11,6 +12,8 @@ const ExtraContent = props => {
 
     if (pageSlug === 'fale-conosco') {
         return <ContactForm />;
+    } else if (pageSlug === 'associe-se') {
+        return <Subscription />;
     } else if (pageSlug === 'eventos') {
         return <Cards data={data} posts={props.events} />;
     } else {

@@ -7,7 +7,7 @@ const ContactForm = props => {
                 <input type='Nome' name='Nome Completo' placeholder='Nome Completo' required />
                 <input type='Email' name='E-mail' placeholder='E-mail' required />
                 <textarea name='Messagem' placeholder='Sua mensagem' rows='10' required />
-                <button type='submit'>Enviar</button>
+                {/* <button type='submit'>Enviar</button> */}
             </form>
         </div>
     );
