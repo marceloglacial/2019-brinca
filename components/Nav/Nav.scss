@@ -1,0 +1,31 @@
+.site-nav--header {
+    background: var(--green);
+}
+.site-nav--header__items {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+.site-nav--header__item {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.site-nav--header__item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    color: white;
+    transition: background 0.3 s ease-in-out;
+
+    &:hover {
+        background: var(--green-hover);
+        text-decoration: none;
+    }
+}
