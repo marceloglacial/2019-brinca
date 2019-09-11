@@ -2,12 +2,12 @@ import Head from 'next/head';
 import Layout from '../components/Layout/Layout';
 import Hero from '../components/Hero/Hero';
 import fetch from 'isomorphic-unfetch';
-import endpoints from '../endpoints';
+import siteConfig from '../components/Global/Global';
 
 const Home = props => (
     <>
         <Head>
-            <title>Brinca - Descrição do site</title>
+            <title>{siteConfig.title} - {siteConfig.description}</title>
         </Head>
         <Layout data={props.menu}>
             <Hero data={props.posts} />
@@ -16,11 +16,11 @@ const Home = props => (
 );
 Home.getInitialProps = async function() {
     // Posts
-    const resPosts = await fetch(`${endpoints.posts}?categories=2366`);
+    const resPosts = await fetch(`${siteConfig.endpopints.posts}?categories=${siteConfig.highlights.id}`);
     const jsonPosts = await resPosts.json();
 
     // Menus
-    const resMenu = await fetch(endpoints.menu);
+    const resMenu = await fetch(siteConfig.endpopints.menu);
     const jsonMenu = await resMenu.json();
     return {
         menu: jsonMenu,
@@ -29,6 +29,3 @@ Home.getInitialProps = async function() {
 };
 
 export default Home;
-
-// TODO
-// https://alligator.io/js/array-find-method/
