@@ -1,68 +1,61 @@
-@import '../../styles/core';
+@import './Carousel';
 
-.hero a {
-    text-decoration: none;
-}
-
-.hero__item {
+.slide__link {
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: hidden;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    width: 100%;
+    height: 550px;
+    color: var(--black);
 
-    @include media-breakpoint-up(lg) {
-        padding-top: 16rem;
-        padding-bottom: 10rem;
+    &:hover {
+        color: var(--black);
+        text-decoration: none;
     }
 }
 
-.hero__info {
-    z-index: 10;
-    color: $white;
-    max-width: 90%;
-    margin: 0 auto;
-
-    @include media-breakpoint-up(lg) {
-        max-width: 50%;
-        margin: 0;
-        padding-top: 6rem;
-
-        &:hover .hero__title,
-        &:hover .hero__description {
-            background: $yellow;
-            transform: translateY(-2px);
-            box-shadow: -10px 10px 1px rgba($black, 0.9);
-        }
-    }
+.sile__image {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    z-index: 0;
 }
 
-.hero__title,
-.hero__description {
-    display: inline-block;
-    background: rgba($white, 0.8);
-    color: $black;
-    padding: 1rem;
+.slide__legend {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-bottom: 6rem;
+
+    &:hover > * {
+        background: var(--yellow);
+        transform: translateY(-2px);
+        box-shadow: -10px 10px 1px rgba(0, 0, 0, 0.9);
+    }
+}
+.slide__title,
+.slide__description {
+    max-width: 50%;
+    text-align: left;
+    background: var(--white);
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.slide__title {
+    padding: 1rem 1.5rem 0 1.5rem;
+    margin: 0 0 -1px 0;
+}
+.slide__description {
+    padding: 1.5rem;
     margin: 0;
-    transition: all 0.3s ease-in-out;
-
-    * {
-        margin: 0;
-        padding: 0;
-    }
 }
-
-.hero__title {
-    padding-bottom: 0rem;
-}
-
-.hero__description p {
+.slide__description p {
+    padding: 0;
+    margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-
-    font-size: 1.2rem;
 }

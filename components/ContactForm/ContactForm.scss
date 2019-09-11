@@ -1,0 +1,25 @@
+// Contact form
+.contact__form form {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    textarea,
+    button {
+        border: solid 2px var(--green);
+        border-radius: 5px;
+        padding: 0.7rem;
+        margin-bottom: 1rem;
+
+        &::placeholder {
+            color: var(--grey-dark);
+        }
+        @media (min-width: 1025px) {
+            padding: 1rem;
+        }
+    }
+    button {
+        background: var(--green);
+        color: var(--white);
+    }
+}
