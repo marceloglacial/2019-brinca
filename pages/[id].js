@@ -5,7 +5,7 @@ import endpoints from '../endpoints';
 
 const Post = props => {
     const data = props.post;
-
+    
     return (
         <>
             <Head>

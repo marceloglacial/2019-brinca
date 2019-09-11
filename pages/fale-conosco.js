@@ -12,15 +12,15 @@ const Contact = props => {
                 <title>Contact</title>
             </Head>
             <Layout data={props.menu}>
-                <article className='article-container con'>
+                <article className='article-container'>
                     <header className='article-header'>
-                        <h2 className='article-header__title'>Fale Conosco</h2>
+                        <h2 className='article-header__title container'>Fale Conosco</h2>
                     </header>
-                    <div className='contact__form'>
+                    <div className='contact__form container'>
                         <form action={`https://formspree.io/${email}`} method='POST'>
                             <input type='text' name='Nome Completo' placeholder='Nome Completo' required />
                             <input type='email' name='E-mail' placeholder='E-mail' required />
-                            <textarea rows='10' />
+                            <textarea rows='10' placeholder='Digite sue mensagem' />
                             <input type='submit' className='contact__input contact__input--submit' value='Cadastre-se' />
                         </form>
                     </div>

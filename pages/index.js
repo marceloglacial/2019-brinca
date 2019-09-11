@@ -29,3 +29,6 @@ Home.getInitialProps = async function() {
 };
 
 export default Home;
+
+// TODO
+// https://alligator.io/js/array-find-method/
