@@ -18,11 +18,6 @@ const Nav = props => {
                     </Link>
                 </li>
             ))}
-            <li className='site-nav--header__item' key='fale-conosco'>
-                    <Link href='fale-conosco' as='fale-conosco'>
-                        <a>Fale Conosco</a>
-                    </Link>
-                </li>
         </ul>
     );
 

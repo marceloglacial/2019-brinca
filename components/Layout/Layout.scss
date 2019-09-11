@@ -57,7 +57,6 @@
 
 // Contact form
 .contact__form {
-    padding-top: 4rem;
     padding-bottom: 4rem;
 }
 
@@ -70,7 +69,8 @@
     }
 
     input,
-    textarea {
+    textarea, 
+    button {
         border: solid 2px var(--green);
         border-radius: 5px;
         padding: 0.7rem;
@@ -83,9 +83,8 @@
             padding: 1rem;
         }
     }
-}
-
-.contact__input.contact__input--submit {
-    background: var(--green);
-    color: var(--white);
+    button {
+        background: var(--green);
+        color: var(--white);    
+    }
 }
