@@ -16,13 +16,11 @@ const Home = props => (
         </Head>
         <Layout data={props.menu}>
             <Hero data={props.posts} />
-            <div className='container'>
-                <Rsvp title='Agenda de Eventos' data={props.rsvp} items='3'>
-                    <div className='events__footer'>
-                        <Button title='Ver Todos' link='agenda' />
-                    </div>
-                </Rsvp>
-            </div>
+            <Rsvp title='Agenda de Eventos' data={props.rsvp} items='3' fluid='no'>
+                <div className='events__footer'>
+                    <Button title='Ver Todos' link='agenda' />
+                </div>
+            </Rsvp>
             <Banner title='Associe-se' />
         </Layout>
     </>

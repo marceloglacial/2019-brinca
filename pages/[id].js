@@ -38,7 +38,7 @@ const Post = props => {
     return (
         <>
             <Head>
-                <title>Brinca: {data.title.rendered}</title>
+                <title>Brinca - {data.title.rendered}</title>
             </Head>
             <Layout data={props.menu}>
                 <article className={`article-container page-${data.slug}`}>
