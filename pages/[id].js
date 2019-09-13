@@ -1,10 +1,11 @@
+import siteConfig from '../components/Global/Global';
 import Head from 'next/head';
 import Layout from '../components/Layout/Layout';
 import fetch from 'isomorphic-unfetch';
 import Cards from '../components/Cards/Cards';
 import ContactForm from '../components/ContactForm/ContactForm';
 import Subscription from '../components/Subscription/Subscription';
-import siteConfig from '../components/Global/Global';
+import Rsvp from '../components/Rsvp/Rsvp';
 
 const ExtraContent = props => {
     const data = props.data;
@@ -16,11 +17,12 @@ const ExtraContent = props => {
         return <Subscription />;
     } else if (pageSlug === 'eventos') {
         return <Cards data={data} posts={props.events} />;
+    } else if (pageSlug === 'agenda') {
+        return <Rsvp data={props.rsvp} />;
     } else {
         return <></>;
     }
 };
-console.log(siteConfig.endpopints.posts);
 
 const Post = props => {
     const data = props.post;
@@ -46,7 +48,7 @@ const Post = props => {
                     </header>
                     <section className='article-content container'>
                         <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
-                        <ExtraContent data={data} events={props.events} />
+                        <ExtraContent data={data} events={props.events} rsvp={props.rsvp} />
                     </section>
                 </article>
             </Layout>
@@ -67,7 +69,17 @@ Post.getInitialProps = async function(context) {
     // Menus
     const resMenu = await fetch(siteConfig.endpopints.menu);
     const jsonMenu = await resMenu.json();
-    return { menu: jsonMenu, post: json[0], events: jsonEvents };
+
+    // Rsvp
+    const resRsvp = await fetch(siteConfig.endpopints.rsvp);
+    const jsonRsvp = await resRsvp.json();
+
+    return {
+        menu: jsonMenu,
+        post: json[0],
+        events: jsonEvents,
+        rsvp: jsonRsvp
+    };
 };
 
 export default Post;

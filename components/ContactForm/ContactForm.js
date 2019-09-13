@@ -2,7 +2,7 @@ import './ContactForm.scss';
 
 const ContactForm = props => {
     return (
-        <div className='contact__form'>
+        <div className='contact-form'>
             <form action={`https://formspree.io/glacial@gmail.com`} method='POST'>
                 <input type='Nome' name='Nome Completo' placeholder='Nome Completo' required />
                 <input type='Email' name='E-mail' placeholder='E-mail' required />
