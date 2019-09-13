@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 // Global Colors
 :root {
     --green: #00A859;
     --green-hover: #0cc76f;
     --black: #222;
+    --black-fade: rgba(0,0,0,0.35);
     --yellow: #FFF212;
     --grey: #E0E0E0;
-    --grey-dark: rgba(#222, 0.5)
+    --grey-dark: rgba(#222, 0.5);
+}
+body {
+    font-family: 'Lato';
 }

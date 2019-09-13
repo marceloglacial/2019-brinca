@@ -1,47 +1,22 @@
-// https://www.eventbriteapi.com/v3/users/me/?token=D3FYWRVPXDLXLBICBIK4
-// https://www.eventbrite.com/oauth/D3FYWRVPXDLXLBICBIK4
-// https://www.eventbriteapi.com/v3/events/71445849459/?token=D3FYWRVPXDLXLBICBIK4
-import fetch from 'isomorphic-unfetch';
-import '../Cards/Cards.scss';
+import './Rsvp.scss';
+import '../Button/Button';
 
-const Card = props => {
+const Event = props => {
     const event = props.data;
-
-    const date = function(e) {
-        const d = new Date(e);
-        const getDate = d.getMonth() + 1;
-        const getDay = d.getDate();
-        const getYear = d.getFullYear();
-        const fullDate = `${getDay}/${getDate}/${getYear}`;
-        return fullDate;
-    };
-
-    const dateStart = event.start.local ? `From: ${date(event.start.local)}` : '';
-    const dateEnd = event.end.local ? ` To: ${date(event.end.local)}` : '';
-
-    const request = async id => {
-        let response = await fetch(`https://www.eventbriteapi.com/v3/events/${id}/ticket_classes/?token=D3FYWRVPXDLXLBICBIK4`);
-        let json = await response.json();
-        let final = json.ticket_classes[0].quantity_total;
-        return final;
-    };
-    // request(event.id).then(console.log);
-    
+    const id = event.id;
+    const title = <h5 className='event-title'>{event.name.text}</h5>;
+    const url = event.url;
+    const logo = event.logo.url ? <img className='event-img-top' src={event.logo.url} /> : '';
+    const description = event.description.text ? <p>{event.description.text}</p> : '';
 
     return (
-        <div className='card' key={event.id}>
-            <a href={event.url} target='_blank'>
-                <img className='card-img-top' src={event.logo.url} />
-                <div className='card-body'>
-                    <div className='card-badge'>Sold: {request(event.id).then(console.log).toString()}</div>
-                    <h5 className='card-title'>{event.name.text}</h5>
-                    <div className='card-text'>
-                        <p>
-                            {dateStart} <br />
-                            {dateEnd}
-                        </p>
-                        <br />
-                        <p>{event.description.text}</p>
+        <div className='event' key={id}>
+            <a href={url} target='_blank'>
+                {logo}
+                <div className='event-text'>
+                    <div className='event-body'>
+                        {title}
+                        {description}
                     </div>
                 </div>
             </a>
@@ -51,18 +26,31 @@ const Card = props => {
 
 const Rsvp = props => {
     const data = props.data.events;
-    return (
-        <div className='rsvp container'>
-            <br />
-            <h2>Agenda</h2>
-            <br />
-            <div className='cards'>
-                {data.map(event => (
-                    <Card data={event} key={event.id} />
+    const items = props.items;
+
+    const title = props.title ? (
+        <div className='rsvp__title'>
+            <h2>Agenda de Eventos</h2>
+        </div>
+    ) : (
+        ''
+    );
+
+    const component = data.length ? (
+        <div className='rsvp'>
+            {title}
+            <div className='events'>
+                {data.slice(0, items).map(event => (
+                    <Event data={event} key={event.id} />
                 ))}
             </div>
+            {props.children}
         </div>
+    ) : (
+        ''
     );
+
+    return component;
 };
 
 export default Rsvp;
