@@ -5,6 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import siteConfig from '../components/Global/Global';
 import Rsvp from '../components/Rsvp/Rsvp';
 import Button from '../components/Button/Button';
+import Banner from '../components/Banner/Banner';
 
 const Home = props => (
     <>
@@ -22,6 +23,7 @@ const Home = props => (
                     </div>
                 </Rsvp>
             </div>
+            <Banner title='Associe-se' />
         </Layout>
     </>
 );

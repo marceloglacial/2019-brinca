@@ -1,0 +1,19 @@
+.banner {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--grey-light);
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+.banner__info {
+    max-width: 75%;
+}
+.banner__cta {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}

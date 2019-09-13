@@ -1,4 +1,3 @@
-import siteConfig from '../../components/Global/Global';
 import Link from 'next/link';
 import './Button.scss';
 
