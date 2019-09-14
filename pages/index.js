@@ -21,7 +21,7 @@ const Home = props => (
                     <Button title='Ver Todos' link='agenda' />
                 </div>
             </Rsvp>
-            <Banner title='Associe-se' />
+            <Banner data={props.banner} />
         </Layout>
     </>
 );
@@ -39,10 +39,15 @@ Home.getInitialProps = async function() {
     const resRsvp = await fetch(siteConfig.endpopints.rsvp);
     const jsonRsvp = await resRsvp.json();
 
+    // Banner 
+    const resBanner = await fetch(siteConfig.endpopints.banner);
+    const jsonBanner = await resBanner.json();
+
     return {
         menu: jsonMenu,
         posts: jsonPosts,
-        rsvp: jsonRsvp
+        rsvp: jsonRsvp,
+        banner: jsonBanner
     };
 };
 

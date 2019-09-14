@@ -22,3 +22,10 @@
     justify-content: center;
     padding-top: 2rem;
 }
+.banner__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+}
