@@ -26,25 +26,25 @@ const ExtraContent = props => {
 
 const Post = props => {
     const data = props.post;
-    const date = new Date(data.date).toLocaleDateString('en-US');
-    const categories = data.categories;
-    const category = categories.find(category => category.toString().startsWith('193774'));
-    let showDate;
+    // const date = new Date(data.date).toLocaleDateString('en-US');
+    // const categories = data.categories;
+    // const category = categories.find(category => category.toString().startsWith('193774'));
+    // let showDate;
 
-    if (category == '193774') {
-        showDate = <p className='container'>{date}</p>;
-    }
+    // if (category == '193774') {
+    //     showDate = <p className='container'>{date}</p>;
+    // }
 
     return (
         <>
             <Head>
-                <title>Brinca: {data.title.rendered}</title>
+                <title>Brinca - {data.title.rendered}</title>
             </Head>
             <Layout data={props.menu}>
                 <article className={`article-container page-${data.slug}`}>
                     <header className='article-header'>
                         <h2 className='article-header__title container'>{data.title.rendered}</h2>
-                        {showDate}
+                        {/* {showDate} */}
                     </header>
                     <section className='article-content container'>
                         <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />

@@ -11,3 +11,19 @@
         color: var(--black);
     }
 }
+
+.btn.btn-secondary {
+    color: var(--green);
+    background-color: transparent;
+    border-color: var(--green);
+    border-radius: 0;
+    padding: 1rem 2rem;
+
+    &:hover {
+        transform: translateY(-2px);
+        border-color: var(--green);
+        box-shadow: -10px 10px 1px rgba(0, 0, 0, 0.9);
+        background-color: var(--green);
+        color: var(--white);
+    }
+}

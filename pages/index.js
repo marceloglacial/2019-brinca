@@ -5,6 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import siteConfig from '../components/Global/Global';
 import Rsvp from '../components/Rsvp/Rsvp';
 import Button from '../components/Button/Button';
+import Banner from '../components/Banner/Banner';
 
 const Home = props => (
     <>
@@ -15,13 +16,12 @@ const Home = props => (
         </Head>
         <Layout data={props.menu}>
             <Hero data={props.posts} />
-            <div className='container'>
-                <Rsvp title='Agenda de Eventos' data={props.rsvp} items='3'>
-                    <div className='events__footer'>
-                        <Button title='Ver Todos' link='agenda' />
-                    </div>
-                </Rsvp>
-            </div>
+            <Rsvp title='Agenda de Eventos' data={props.rsvp} items='3' fluid='no'>
+                <div className='events__footer'>
+                    <Button title='Ver Todos' link='agenda' />
+                </div>
+            </Rsvp>
+            <Banner data={props.banner} />
         </Layout>
     </>
 );
@@ -39,10 +39,15 @@ Home.getInitialProps = async function() {
     const resRsvp = await fetch(siteConfig.endpopints.rsvp);
     const jsonRsvp = await resRsvp.json();
 
+    // Banner 
+    const resBanner = await fetch(siteConfig.endpopints.banner);
+    const jsonBanner = await resBanner.json();
+
     return {
         menu: jsonMenu,
         posts: jsonPosts,
-        rsvp: jsonRsvp
+        rsvp: jsonRsvp,
+        banner: jsonBanner
     };
 };
 

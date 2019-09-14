@@ -3,15 +3,19 @@
     padding-bottom: 2rem;
     background-color: var(--yellow);
 
-    h2 {
+    h2, p {
         margin-top: 0;
         margin-bottom: 0;
     }
 }
 .article-content {
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     background: var(--white);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 .article-content img {
     max-width: 100%;

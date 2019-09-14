@@ -27,17 +27,18 @@ const Event = props => {
 const Rsvp = props => {
     const data = props.data.events;
     const items = props.items;
+    const fluid = props.fluid ? 'container' : ''; 
 
     const title = props.title ? (
         <div className='rsvp__title'>
-            <h2>Agenda de Eventos</h2>
+            <h2 className='heading-title'>Agenda de Eventos</h2>
         </div>
     ) : (
         ''
     );
 
     const component = data.length ? (
-        <div className='rsvp'>
+        <section className={`rsvp ${fluid}`}>
             {title}
             <div className='events'>
                 {data.slice(0, items).map(event => (
@@ -45,7 +46,7 @@ const Rsvp = props => {
                 ))}
             </div>
             {props.children}
-        </div>
+        </section>
     ) : (
         ''
     );

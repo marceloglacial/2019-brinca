@@ -9,7 +9,25 @@
     --yellow: #FFF212;
     --grey: #E0E0E0;
     --grey-dark: rgba(#222, 0.5);
+    --grey-light: rgba(0,0,0, 0.05);
 }
 body {
     font-family: 'Lato';
+}
+
+.heading-title {
+    font-size: 2.5rem;
+    // font-weight: lighter;
+    color: var(--green);
+    position: relative;
+    &:after {
+        position: relative;
+        display: block;
+        content: '';
+        width: 150px;
+        height: 20px;
+        background: var(--yellow);
+        transform: translateY(-100%);
+        z-index: -1;
+    }
 }

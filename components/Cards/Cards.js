@@ -7,7 +7,7 @@ const Cards = props => {
 
     if (data.slug === 'eventos') {
         const cards = (
-            <div className='cards'>
+            <section className='cards'>
                 {posts.map(post => (
                     <div className='card' key={post.slug}>
                         <Link href='[id]' as={`${post.slug}`}>
@@ -21,7 +21,7 @@ const Cards = props => {
                         </Link>
                     </div>
                 ))}
-            </div>
+            </section>
         );
         return <>{cards}</>;
     } else {
