@@ -22,4 +22,12 @@
         background: var(--green);
         color: var(--white);
     }
+
+    @media (max-width: 450px) {
+        padding: 2rem 0 0 0;
+
+        button {
+            margin: 0;
+        }
+    }
 }
