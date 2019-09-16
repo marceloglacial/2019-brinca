@@ -2,14 +2,14 @@
 
 // Global Colors
 :root {
-    --green: #00A859;
+    --green: #00a859;
     --green-hover: #0cc76f;
     --black: #222;
-    --black-fade: rgba(0,0,0,0.35);
-    --yellow: #FFF212;
-    --grey: #E0E0E0;
+    --black-fade: rgba(0, 0, 0, 0.35);
+    --yellow: #fff212;
+    --grey: #e0e0e0;
     --grey-dark: rgba(#222, 0.5);
-    --grey-light: rgba(0,0,0, 0.05);
+    --grey-light: rgba(0, 0, 0, 0.05);
 }
 body {
     font-family: 'Lato';
@@ -20,6 +20,11 @@ body {
     // font-weight: lighter;
     color: var(--green);
     position: relative;
+
+    @media (max-width: 450px) {
+        text-align: center;
+    }
+    
     &:after {
         position: relative;
         display: block;
@@ -29,5 +34,9 @@ body {
         background: var(--yellow);
         transform: translateY(-100%);
         z-index: -1;
+
+        @media (max-width: 450px) {
+            margin: 0 auto;
+        }
     }
 }

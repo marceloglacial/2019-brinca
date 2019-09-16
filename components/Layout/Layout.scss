@@ -16,6 +16,9 @@
     p:last-child {
         margin-bottom: 0;
     }
+    @media (max-width: 450px) {
+        padding-bottom: 2rem;
+    }
 }
 .article-content img {
     max-width: 100%;
