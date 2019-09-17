@@ -7,7 +7,6 @@
     textarea,
     button {
         border: solid 2px var(--green);
-        border-radius: 5px;
         padding: 0.7rem;
         margin-bottom: 1rem;
 
@@ -21,6 +20,12 @@
     button {
         background: var(--green);
         color: var(--white);
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: translate(5px, -5px);
+            box-shadow: var(--shadow);
+        }
     }
 
     @media (max-width: 450px) {

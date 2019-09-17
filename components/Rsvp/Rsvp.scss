@@ -29,7 +29,7 @@
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: -10px 10px 1px rgba(0, 0, 0, 0.9);
+        box-shadow: var(--shadow);
         border-color: var(--black);
     }
 
@@ -57,6 +57,9 @@
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        font-size: 1rem;
+        font-weight: bold;
+        color: va(--black);
     }
     .event-text p {
         padding: 0;
