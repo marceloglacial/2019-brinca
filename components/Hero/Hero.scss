@@ -15,6 +15,9 @@
     @media (max-width: 450px) {
         height: 350px;
     }
+    @media (min-width: 1600px) {
+        height: 720px;
+    }
 }
 .control-dots {
     @media (max-width: 450px) {
@@ -36,7 +39,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    padding-bottom: 6rem;
+    padding-bottom: 4rem;
 
     &:hover > * {
         background: var(--yellow);
@@ -47,6 +50,9 @@
     @media (max-width: 450px) {
         padding-bottom: 1rem;
     }
+}
+.container .slide__legend {
+    padding-left: 4rem;
 }
 .slide__title,
 .slide__description {

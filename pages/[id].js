@@ -12,7 +12,7 @@ const ExtraContent = props => {
     const pageSlug = data.slug;
 
     if (pageSlug === 'fale-conosco') {
-        return <ContactForm />;
+        return <ContactForm email={siteConfig.email} />;
     } else if (pageSlug === 'associe-se') {
         return <Subscription />;
     } else if (pageSlug === 'eventos') {
@@ -59,19 +59,19 @@ const Post = props => {
 Post.getInitialProps = async function(context) {
     // Posts
     const { id } = context.query;
-    const res = await fetch(`${siteConfig.endpopints.posts}?slug=${id}`);
+    const res = await fetch(`${siteConfig.endpoints.posts}?slug=${id}`);
     const json = await res.json();
 
     // Events
-    const resEvents = await fetch(`${siteConfig.endpopints.posts}?categories=${siteConfig.events.id}`);
+    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.events.id}`);
     const jsonEvents = await resEvents.json();
 
     // Menus
-    const resMenu = await fetch(siteConfig.endpopints.menu);
+    const resMenu = await fetch(siteConfig.endpoints.menu);
     const jsonMenu = await resMenu.json();
 
     // Rsvp
-    const resRsvp = await fetch(siteConfig.endpopints.rsvp);
+    const resRsvp = await fetch(siteConfig.endpoints.rsvp);
     const jsonRsvp = await resRsvp.json();
 
     return {

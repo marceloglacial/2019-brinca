@@ -13,15 +13,18 @@ const Nav = props => {
     const nav = props.data;
 
     const navitens = (
-        <ul className={`site-nav--header__items container ${isOpen ? 'is-open' : ''}`}>
-            {nav.map(post => (
-                <li className='site-nav--header__item' key={post.id}>
-                    <Link href='[id]' as={`${post.slug}`}>
-                        <a onClick={toggleMenu}>{post.title.rendered}</a>
-                    </Link>
-                </li>
-            ))}
-        </ul>
+        // Not dynamic menu
+        // ================
+        // <ul className={`site-nav--header__items container ${isOpen ? 'is-open' : ''}`}>
+        //     {nav.map(post => (
+        //         <li className='site-nav--header__item' key={post.id}>
+        //             <Link href='[id]' as={`${post.slug}`}>
+        //                 <a onClick={toggleMenu}>{post.title.rendered}</a>
+        //             </Link>
+        //         </li>
+        //     ))}
+        // </ul>
+        <div className={`site-nav--header__items container ${isOpen ? 'is-open' : ''}`} dangerouslySetInnerHTML={{ __html: nav.content.rendered }} />
     );
 
     return (

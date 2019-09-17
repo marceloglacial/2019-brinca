@@ -66,7 +66,6 @@
 }
 
 // Pages
-.page-associe-se .article-content,
 .page-fale-conosco .article-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -76,4 +75,7 @@
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
     }
+}
+.subscription-form {
+    padding-top: 4rem;
 }
