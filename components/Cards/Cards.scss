@@ -15,13 +15,15 @@
         grid-template-columns: 1fr;
     }
     .card {
+        border-radius: 0;
         overflow: hidden;
         transition: all 0.2s ease-in-out;
 
         &:hover {
-            box-shadow: 0px 0px 15px 0px var(--grey);
-            transform: scale(1.01);
-        }
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--black);
+            }
 
         a {
             text-decoration: none;
@@ -29,11 +31,27 @@
         }
     }
     .card-img-top {
+        border-radius: 0;
         height: 200px;
         overflow: hidden;
         object-fit: cover;
     }
+    .card-title {
+        font-weight: bold;
+        color: var(--green);
+        position: relative;
+        z-index: 1;
 
+        &:after {
+            display: block;
+            content: '';
+            width: 50px;
+            height: 5px;
+            background: var(--yellow);
+            position: relative;
+            z-index: -1;
+        }
+    }
     .card-text p {
         padding: 0;
         margin: 0;

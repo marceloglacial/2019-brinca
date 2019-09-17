@@ -45,12 +45,13 @@
 .blocks-gallery-item {
     figure {
         overflow: hidden;
-        border-radius: 5px;
         transition: all 0.2s ease-in-out;
+        border-color: var(--black);
 
         &:hover {
-            box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
-            transform: scale(1.01);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--black);
         }
 
         img {
