@@ -5,11 +5,15 @@ const publicToken = 'DN7S32U4FPPCU4YRXHL3';
 const siteConfig = {
     title: 'Brinca',
     description: "Brazil-Canada Community Association's website",
+    email: 'glacial@gmail.com',
     url: '/',
     favicon: 'static/favicon.png',
     events: {
         id: 2366,
         slug: 'Eventos'
+    },
+    menu: {
+        id: 286
     },
     highlights: {
         id: 193774,
@@ -19,9 +23,10 @@ const siteConfig = {
         id: 987,
         slug: 'Agenda'
     },
-    endpopints: {
+    endpoints: {
         posts: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts`,
-        menu: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts?categories=36116826`,
+        // menu: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts?categories=36116826`,
+        menu: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts/286`,
         rsvp: `https://www.eventbriteapi.com/v3/events/search/?user.id=${userId}&token=${publicToken}`,
         banner: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts/219`
         

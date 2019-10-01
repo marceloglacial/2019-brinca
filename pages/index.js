@@ -28,19 +28,19 @@ const Home = props => (
 
 Home.getInitialProps = async function() {
     // Posts
-    const resPosts = await fetch(`${siteConfig.endpopints.posts}?categories=${siteConfig.highlights.id}`);
+    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}`);
     const jsonPosts = await resPosts.json();
 
     // Menus
-    const resMenu = await fetch(siteConfig.endpopints.menu);
+    const resMenu = await fetch(siteConfig.endpoints.menu);
     const jsonMenu = await resMenu.json();
 
     // Rsvp
-    const resRsvp = await fetch(siteConfig.endpopints.rsvp);
+    const resRsvp = await fetch(siteConfig.endpoints.rsvp);
     const jsonRsvp = await resRsvp.json();
 
     // Banner 
-    const resBanner = await fetch(siteConfig.endpopints.banner);
+    const resBanner = await fetch(siteConfig.endpoints.banner);
     const jsonBanner = await resBanner.json();
 
     return {
