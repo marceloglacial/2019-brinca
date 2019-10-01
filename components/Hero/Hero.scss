@@ -42,7 +42,7 @@
     padding-bottom: 4rem;
 
     &:hover > * {
-        background: var(--yellow);
+        // background: var(--yellow);
         transform: translateY(-2px);
         box-shadow: var(--shadow);
     }
