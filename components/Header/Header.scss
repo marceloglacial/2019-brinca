@@ -3,20 +3,4 @@
 .site-header {
     position: relative;
     background: var(--white);
-
-    &__telephone {
-        display: none;
-        @include size('tablet') {
-            display: block;
-            position: absolute;
-            top: 35%;
-            left: 60%;
-            transform: translate(-60%, -35%);
-        }
-        @include size('desktop') {
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%, -35%);
-        }
-    }
 }

@@ -1,5 +1,19 @@
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import '../Global/Global.scss';
+
+// Global Colors
+:root {
+    --green: #00a859;
+    --green-hover: #0cc76f;
+    --black: #222;
+    --black-fade: rgba(0, 0, 0, 0.35);
+    --yellow: #fff212;
+    --grey: #e0e0e0;
+    --grey-dark: rgba(#222, 0.5);
+    --grey-light: rgba(0, 0, 0, 0.05);
+    --shadow: -10px 10px 1px rgba(0, 0, 0, 0.9);
+}
 
 body {
     font-family: 'Lato';
@@ -7,11 +21,10 @@ body {
 
 .heading-title {
     font-size: 2.5rem;
-    // font-weight: lighter;
     color: var(--green);
     position: relative;
 
-    @media (max-width: 450px) {
+    @include size('phone') {
         text-align: center;
     }
 
@@ -25,7 +38,7 @@ body {
         transform: translateY(-100%);
         z-index: -1;
 
-        @media (max-width: 450px) {
+        @include size('phone') {
             margin: 0 auto;
         }
     }
@@ -50,7 +63,7 @@ body {
     p:last-child {
         margin-bottom: 0;
     }
-    @media (max-width: 450px) {
+    @include size('phone') {
         padding-bottom: 2rem;
     }
 }
@@ -64,16 +77,16 @@ body {
     padding: 1rem 0;
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 1rem 2rem;
 
-    @media (max-width: 1024px) {
+    @include size('tablet') {
         grid-template-columns: 1fr 1fr;
     }
 
-    @media (max-width: 450px) {
-        grid-template-columns: 1fr;
+    @include size('desktop') {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
 .blocks-gallery-item {
@@ -102,12 +115,16 @@ body {
 // Pages
 .page-fale-conosco .article-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 0 4rem;
 
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
+    @include size('tablet') {
+        grid-template-columns: 1fr 1fr;
+
+        form {
+            padding: 0;
+        }
     }
 }
 .subscription-form {

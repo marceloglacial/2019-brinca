@@ -1,24 +1,11 @@
-// Global Colors
-:root {
-    --green: #00a859;
-    --green-hover: #0cc76f;
-    --black: #222;
-    --black-fade: rgba(0, 0, 0, 0.35);
-    --yellow: #fff212;
-    --grey: #e0e0e0;
-    --grey-dark: rgba(#222, 0.5);
-    --grey-light: rgba(0, 0, 0, 0.05);
-    --shadow: -10px 10px 1px rgba(0, 0, 0, 0.9);
-}
-
 // Mixins
 @mixin size($size) {
     @if $size == 'phone' {
-        @media (max-width: 450px) {
+        @media (max-width: 767px) {
             @content;
         }
     } @else if $size == 'tablet' {
-        @media (min-width: 600px) {
+        @media (min-width: 768px) {
             @content;
         }
     } @else if $size == 'desktop' {

@@ -1,3 +1,5 @@
+@import '../../components/Global/Global.scss';
+
 // Reference: https://www.npmjs.com/package/react-responsive-carousel
 
 .carousel .control-arrow,
@@ -166,22 +168,6 @@
     margin: 0 40px 40px;
     border: 0;
 }
-// .carousel .slide .legend {
-//     transition: all 0.5s ease-in-out;
-//     position: absolute;
-//     bottom: 40px;
-//     left: 50%;
-//     margin-left: -45%;
-//     width: 90%;
-//     border-radius: 10px;
-//     background: green;
-//     color: #fff;
-//     padding: 10px;
-//     font-size: 12px;
-//     text-align: center;
-//     opacity: 0.25;
-//     transition: opacity 0.35s ease-in-out;
-// }
 .carousel .control-dots {
     position: absolute;
     bottom: 0;
@@ -189,7 +175,7 @@
     text-align: center;
     width: 100%;
 }
-@media (min-width: 960px) {
+@include size('tablet') {
     .carousel .control-dots {
         bottom: 0;
     }
