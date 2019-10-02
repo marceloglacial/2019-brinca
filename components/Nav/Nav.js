@@ -1,8 +1,5 @@
 import siteConfig from '../../components/Global/Global';
 import Head from 'next/head';
-import Link from 'next/link';
-
-import '../../node_modules/bootstrap/scss/bootstrap.scss';
 import './Nav.scss';
 
 import { useState } from 'react';
