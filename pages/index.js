@@ -39,7 +39,7 @@ Home.getInitialProps = async function() {
     const resRsvp = await fetch(siteConfig.endpoints.rsvp);
     const jsonRsvp = await resRsvp.json();
 
-    // Banner 
+    // Banner
     const resBanner = await fetch(siteConfig.endpoints.banner);
     const jsonBanner = await resBanner.json();
 

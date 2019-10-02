@@ -1,3 +1,5 @@
+@import '../Global/Global.scss';
+
 .site-nav--header {
     background: var(--green);
 }
@@ -18,6 +20,31 @@
     padding: 0;
     margin: 0;
     width: 100%;
+
+    &.site-nav--header__item--telephone {
+        @include size('tablet') {
+            display: block;
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -25%);
+            background: url('/static/icon-phone.png') no-repeat left center;
+            background-size: 25px;
+            width: unset;
+
+            a {
+                color: var(--grey-dark);
+                background: unset;
+                padding-left: 2.2rem;
+            }
+        }
+
+        @include size('desktop') {
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -35%);
+        }
+    }
 }
 .site-nav--header__items a {
     display: flex;
@@ -26,20 +53,22 @@
     width: 100%;
     height: 100%;
     padding: 1rem;
-    color: white;
-    transition: background 0.3 s ease-in-out;
+    color: var(--white);
+    transition: background 0.3s ease-in-out;
     white-space: nowrap;
 
     &:hover {
+        color: var(--white);
         background: var(--green-hover);
         text-decoration: none;
     }
 }
+
 .site-nav-button {
     display: none;
 }
 
-@media (max-width: 450px) {
+@include size('phone') {
     .site-nav-button {
         position: absolute;
         right: 0;
