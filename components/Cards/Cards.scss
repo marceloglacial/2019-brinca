@@ -1,19 +1,21 @@
+@import '../Global/Global.scss';
+
 // Cards
 .cards {
+    grid-template-columns: 1fr;
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 2rem;
     padding-top: 2rem;
 
-    @media (max-width: 1024px) {
+    @include size('tablet') {
         grid-template-columns: 1fr 1fr;
     }
-
-    @media (max-width: 450px) {
-        grid-template-columns: 1fr;
+    @include size('desktop') {
+        grid-template-columns: 1fr 1fr 1fr;
     }
+
     .card {
         border-radius: 0;
         overflow: hidden;
@@ -23,7 +25,7 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow);
             border-color: var(--black);
-            }
+        }
 
         a {
             text-decoration: none;

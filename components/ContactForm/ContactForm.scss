@@ -1,7 +1,10 @@
+@import '../Global/Global.scss';
+
 // Contact form
 .contact-form form {
     display: flex;
     flex-direction: column;
+    padding: 2rem 0 0 0;
 
     input,
     textarea,
@@ -13,7 +16,7 @@
         &::placeholder {
             color: var(--grey-dark);
         }
-        @media (min-width: 1025px) {
+        @include size('desktop') {
             padding: 1rem;
         }
     }
@@ -21,6 +24,7 @@
         background: var(--green);
         color: var(--white);
         transition: all 0.2s ease-in-out;
+        margin: 0;
 
         &:hover {
             transform: translate(5px, -5px);
@@ -28,11 +32,7 @@
         }
     }
 
-    @media (max-width: 450px) {
-        padding: 2rem 0 0 0;
-
-        button {
-            margin: 0;
-        }
+    @include size('desktop') {
+        padding: 0;
     }
 }
