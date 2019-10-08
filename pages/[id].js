@@ -16,9 +16,14 @@ const ExtraContent = props => {
     } else if (pageSlug === 'associe-se') {
         return <Subscription />;
     } else if (pageSlug === 'eventos') {
-        return <Cards data={data} posts={props.events} />;
-    } else if (pageSlug === 'agenda') {
-        return <Rsvp data={props.rsvp} />;
+        return (
+            <>
+                <h3>Próximos Eventos</h3>
+                <Rsvp data={props.rsvp} />
+                <h3>Coberturas</h3>
+                <Cards data={data} posts={props.events} />
+            </>
+        );
     } else {
         return <></>;
     }

@@ -4,11 +4,11 @@
 
 // Global Colors
 :root {
-    --green: #00a859;
+    --green: #479a52;
     --green-hover: #0cc76f;
     --black: #222;
     --black-fade: rgba(0, 0, 0, 0.35);
-    --yellow: #fff212;
+    --yellow: #eace4e;
     --grey: #e0e0e0;
     --grey-dark: rgba(#222, 0.5);
     --grey-light: rgba(0, 0, 0, 0.05);
@@ -17,6 +17,10 @@
 
 body {
     font-family: 'Lato';
+}
+
+h3 {
+    padding: 3rem 0 0 0;
 }
 
 .heading-title {
