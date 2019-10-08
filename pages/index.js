@@ -21,7 +21,7 @@ const Home = props => (
 
 Home.getInitialProps = async function() {
     // Posts
-    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}`);
+    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}&order=desc`);
     const jsonPosts = await resPosts.json();
 
     // Menus
