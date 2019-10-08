@@ -19,10 +19,6 @@ body {
     font-family: 'Lato';
 }
 
-h3 {
-    padding: 3rem 0 0 0;
-}
-
 .heading-title {
     font-size: 2.5rem;
     color: var(--green);
@@ -31,16 +27,13 @@ h3 {
     @include size('phone') {
         text-align: center;
     }
-
     &:after {
-        position: relative;
         display: block;
         content: '';
         width: 150px;
-        height: 20px;
+        height: 10px;
         background: var(--yellow);
-        transform: translateY(-100%);
-        z-index: -1;
+        margin-bottom: 2rem;
 
         @include size('phone') {
             margin: 0 auto;
