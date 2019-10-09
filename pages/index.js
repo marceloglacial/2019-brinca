@@ -12,7 +12,7 @@ const Home = props => (
                 {siteConfig.title} - {siteConfig.description}
             </title>
         </Head>
-        <Layout data={props.menu}>
+        <Layout data={props.menu} footer={props.footer}>
             <Hero data={props.posts} />
             <Banner data={props.banner} />
         </Layout>
@@ -32,10 +32,15 @@ Home.getInitialProps = async function() {
     const resBanner = await fetch(siteConfig.endpoints.banner);
     const jsonBanner = await resBanner.json();
 
+    // Footer
+    const resFooter = await fetch(siteConfig.endpoints.footer);
+    const jsonFooter = await resFooter.json();
+
     return {
         menu: jsonMenu,
         posts: jsonPosts,
-        banner: jsonBanner
+        banner: jsonBanner,
+        footer: jsonFooter
     };
 };
 

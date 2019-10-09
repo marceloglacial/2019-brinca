@@ -28,7 +28,7 @@ const Post = props => {
             <Head>
                 <title>Brinca - {data.title.rendered}</title>
             </Head>
-            <Layout data={props.menu}>
+            <Layout data={props.menu} footer={props.footer}>
                 <article className={`article-container page-${data.slug}`}>
                     <header className='article-header'>
                         <h2 className='article-header__title container'>{data.title.rendered}</h2>
@@ -57,10 +57,15 @@ Post.getInitialProps = async function(context) {
     const resMenu = await fetch(siteConfig.endpoints.menu);
     const jsonMenu = await resMenu.json();
 
+    // Footer
+    const resFooter = await fetch(siteConfig.endpoints.footer);
+    const jsonFooter = await resFooter.json();
+
     return {
         menu: jsonMenu,
         post: json[0],
-        events: jsonEvents
+        events: jsonEvents,
+        footer: jsonFooter
     };
 };
 

@@ -6,7 +6,7 @@ const Layout = props => (
     <>
         <Header {...props} />
         <main className='site-layout'>{props.children}</main>
-        <Footer />
+        <Footer {...props} />
     </>
 );
 
