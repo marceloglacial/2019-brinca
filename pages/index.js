@@ -24,16 +24,16 @@ Home.getInitialProps = async function() {
     const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}&order=desc`);
     const jsonPosts = await resPosts.json();
 
-    // Menus
-    const resMenu = await fetch(siteConfig.endpoints.menu);
-    const jsonMenu = await resMenu.json();
-
     // Banner
-    const resBanner = await fetch(siteConfig.endpoints.banner);
+    const resBanner = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.banner.id}`);
     const jsonBanner = await resBanner.json();
 
+    // Menus
+    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.menu.id}`);
+    const jsonMenu = await resMenu.json();
+
     // Footer
-    const resFooter = await fetch(siteConfig.endpoints.footer);
+    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.footer.id}`);
     const jsonFooter = await resFooter.json();
 
     return {

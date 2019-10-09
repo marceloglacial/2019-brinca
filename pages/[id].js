@@ -54,11 +54,11 @@ Post.getInitialProps = async function(context) {
     const jsonEvents = await resEvents.json();
 
     // Menus
-    const resMenu = await fetch(siteConfig.endpoints.menu);
+    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.menu.id}`);
     const jsonMenu = await resMenu.json();
 
     // Footer
-    const resFooter = await fetch(siteConfig.endpoints.footer);
+    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.footer.id}`);
     const jsonFooter = await resFooter.json();
 
     return {

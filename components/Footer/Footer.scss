@@ -1,3 +1,4 @@
+@import '../Global/Global.scss';
 footer {
     position: relative;
     color: var(--white);
@@ -22,7 +23,11 @@ footer .site-footer-nav {
 .site-footer-nav__items {
     max-width: 800px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+
+    @include size('tablet') {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
 .site-footer-nav__items p {
     display: flex;
@@ -56,14 +61,26 @@ footer .site-footer-nav {
     font-size: 0.9rem;
 }
 .site-footer-developer {
-    position: absolute;
-    right: 1rem;
-    bottom: 1.2rem;
+    background: var(--grey);
+    padding: 0 0 1rem 0;
+    margin-top: -0.6rem;
     text-transform: lowercase;
     font-size: 0.8rem;
     color: var(--black);
-    opacity: 0.3;
-    &:hover {
-        opacity: 1;
+    text-align: center;
+
+    p {
+        opacity: 0.3;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    @include size('tablet') {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right: 1rem;
+        bottom: 1.2rem;
     }
 }

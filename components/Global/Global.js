@@ -1,7 +1,3 @@
-// Eventbrite public Keys
-const userId = '219069175457';
-const publicToken = 'DN7S32U4FPPCU4YRXHL3';
-
 const siteConfig = {
     title: 'Brinca',
     description: "Brazil-Canada Community Association's website",
@@ -15,21 +11,17 @@ const siteConfig = {
     menu: {
         id: 286
     },
-    highlights: {
-        id: 193774,
-        slug: 'Destaques'
+    footer: {
+        id: 320
     },
-    rsvp: {
-        id: 987,
-        slug: 'Agenda'
+    banner: {
+        id: 219
+    },
+    highlights: {
+        id: 193774
     },
     endpoints: {
-        posts: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts`,
-        // menu: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts?categories=36116826`,
-        menu: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts/286`,
-        footer: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts/320`,
-        rsvp: `https://www.eventbriteapi.com/v3/events/search/?user.id=${userId}&token=${publicToken}`,
-        banner: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts/219`
+        posts: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts`
     },
     subscription: 'https://docs.google.com/forms/d/e/1FAIpQLSfv4-p0GjPdydFmK8Fte7OD9rt6pM3WYlA8FFATfw-5bNH4QQ'
 };
