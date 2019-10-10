@@ -4,11 +4,11 @@
 
 // Global Colors
 :root {
-    --green: #00a859;
+    --green: #479a52;
     --green-hover: #0cc76f;
     --black: #222;
     --black-fade: rgba(0, 0, 0, 0.35);
-    --yellow: #fff212;
+    --yellow: #eace4e;
     --grey: #e0e0e0;
     --grey-dark: rgba(#222, 0.5);
     --grey-light: rgba(0, 0, 0, 0.05);
@@ -27,16 +27,13 @@ body {
     @include size('phone') {
         text-align: center;
     }
-
     &:after {
-        position: relative;
         display: block;
         content: '';
         width: 150px;
-        height: 20px;
+        height: 10px;
         background: var(--yellow);
-        transform: translateY(-100%);
-        z-index: -1;
+        margin-bottom: 2rem;
 
         @include size('phone') {
             margin: 0 auto;
@@ -73,7 +70,7 @@ body {
 }
 
 // Blocks Galley
-.wp-block-gallery {
+.blocks-gallery-grid {
     padding: 1rem 0;
     list-style: none;
     display: grid;

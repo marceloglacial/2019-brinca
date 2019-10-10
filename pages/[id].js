@@ -5,7 +5,6 @@ import fetch from 'isomorphic-unfetch';
 import Cards from '../components/Cards/Cards';
 import ContactForm from '../components/ContactForm/ContactForm';
 import Subscription from '../components/Subscription/Subscription';
-import Rsvp from '../components/Rsvp/Rsvp';
 
 const ExtraContent = props => {
     const data = props.data;
@@ -17,8 +16,6 @@ const ExtraContent = props => {
         return <Subscription />;
     } else if (pageSlug === 'eventos') {
         return <Cards data={data} posts={props.events} />;
-    } else if (pageSlug === 'agenda') {
-        return <Rsvp data={props.rsvp} />;
     } else {
         return <></>;
     }
@@ -26,25 +23,15 @@ const ExtraContent = props => {
 
 const Post = props => {
     const data = props.post;
-    // const date = new Date(data.date).toLocaleDateString('en-US');
-    // const categories = data.categories;
-    // const category = categories.find(category => category.toString().startsWith('193774'));
-    // let showDate;
-
-    // if (category == '193774') {
-    //     showDate = <p className='container'>{date}</p>;
-    // }
-
     return (
         <>
             <Head>
                 <title>Brinca - {data.title.rendered}</title>
             </Head>
-            <Layout data={props.menu}>
+            <Layout data={props.menu} footer={props.footer}>
                 <article className={`article-container page-${data.slug}`}>
                     <header className='article-header'>
                         <h2 className='article-header__title container'>{data.title.rendered}</h2>
-                        {/* {showDate} */}
                     </header>
                     <section className='article-content container'>
                         <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
@@ -63,22 +50,22 @@ Post.getInitialProps = async function(context) {
     const json = await res.json();
 
     // Events
-    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.events.id}`);
+    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.events.id}&order=desc`);
     const jsonEvents = await resEvents.json();
 
     // Menus
-    const resMenu = await fetch(siteConfig.endpoints.menu);
+    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.menu.id}`);
     const jsonMenu = await resMenu.json();
 
-    // Rsvp
-    const resRsvp = await fetch(siteConfig.endpoints.rsvp);
-    const jsonRsvp = await resRsvp.json();
+    // Footer
+    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.footer.id}`);
+    const jsonFooter = await resFooter.json();
 
     return {
         menu: jsonMenu,
         post: json[0],
         events: jsonEvents,
-        rsvp: jsonRsvp
+        footer: jsonFooter
     };
 };
 

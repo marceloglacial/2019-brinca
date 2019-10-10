@@ -3,8 +3,6 @@ import Layout from '../components/Layout/Layout';
 import Hero from '../components/Hero/Hero';
 import fetch from 'isomorphic-unfetch';
 import siteConfig from '../components/Global/Global';
-import Rsvp from '../components/Rsvp/Rsvp';
-import Button from '../components/Button/Button';
 import Banner from '../components/Banner/Banner';
 
 const Home = props => (
@@ -14,13 +12,8 @@ const Home = props => (
                 {siteConfig.title} - {siteConfig.description}
             </title>
         </Head>
-        <Layout data={props.menu}>
+        <Layout data={props.menu} footer={props.footer}>
             <Hero data={props.posts} />
-            <Rsvp title='Agenda de Eventos' data={props.rsvp} items='3' fluid='no'>
-                <div className='events__footer'>
-                    <Button title='Ver Todos' link='agenda' />
-                </div>
-            </Rsvp>
             <Banner data={props.banner} />
         </Layout>
     </>
@@ -28,26 +21,26 @@ const Home = props => (
 
 Home.getInitialProps = async function() {
     // Posts
-    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}`);
+    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}&order=desc`);
     const jsonPosts = await resPosts.json();
 
+    // Banner
+    const resBanner = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.banner.id}`);
+    const jsonBanner = await resBanner.json();
+
     // Menus
-    const resMenu = await fetch(siteConfig.endpoints.menu);
+    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.menu.id}`);
     const jsonMenu = await resMenu.json();
 
-    // Rsvp
-    const resRsvp = await fetch(siteConfig.endpoints.rsvp);
-    const jsonRsvp = await resRsvp.json();
-
-    // Banner
-    const resBanner = await fetch(siteConfig.endpoints.banner);
-    const jsonBanner = await resBanner.json();
+    // Footer
+    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.footer.id}`);
+    const jsonFooter = await resFooter.json();
 
     return {
         menu: jsonMenu,
         posts: jsonPosts,
-        rsvp: jsonRsvp,
-        banner: jsonBanner
+        banner: jsonBanner,
+        footer: jsonFooter
     };
 };
 
