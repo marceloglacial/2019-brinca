@@ -1,5 +1,6 @@
 import siteConfig from '../../components/Global/Global';
 import Head from 'next/head';
+import LanguagePicker from '../LanguagePicker/LanguagePicker';
 import './Nav.scss';
 
 import { useState } from 'react';
@@ -9,7 +10,12 @@ const Nav = props => {
     const toggleMenu = () => setIsOpen(!isOpen);
     const nav = props.data;
 
-    const navitens = <div className={`site-nav--header__items container ${isOpen ? 'is-open' : ''}`} dangerouslySetInnerHTML={{ __html: nav.content.rendered }} />;
+    const navitens = (
+        <div className={`site-nav--header__items container ${isOpen ? 'is-open' : ''}`}>
+            <div className='site-nav--header__items_container' dangerouslySetInnerHTML={{ __html: nav.content.rendered }} />
+            <LanguagePicker />
+        </div>
+    );
 
     return (
         <>
