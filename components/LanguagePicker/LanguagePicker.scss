@@ -32,6 +32,7 @@
             margin-right: 1rem;
         }
     }
+
     @include size('tablet') {
         position: absolute;
         top: -90px;
@@ -49,21 +50,37 @@
         &:hover {
             height: 6.9rem;
             box-shadow: 0px 0px 5px 5px var(--grey-light);
-        }
 
-        &::before {
-            display: none;
+            a.active {
+                position: unset;
+                top: unset;
+                width: unset;
+            }
         }
+    }
 
-        a {
-            align-items: unset;
-            justify-content: unset;
-            color: var(--black);
-        }
+    &::before {
+        display: none;
+    }
 
-        p {
-            padding: 0;
-            margin: 0;
+    a {
+        align-items: unset;
+        justify-content: unset;
+        color: var(--black);
+        margin: 0;
+    }
+    a.active {
+        position: absolute;
+        top: 0;
+        background-color: var(--white);
+        width: 1000%;
+
+        &:hover {
+            background: var(--grey-light);
         }
+    }
+    p {
+        padding: 0;
+        margin: 0;
     }
 }

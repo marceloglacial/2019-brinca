@@ -13,7 +13,7 @@ const Nav = props => {
     const navitens = (
         <div className={`site-nav--header__items container ${isOpen ? 'is-open' : ''}`}>
             <div className='site-nav--header__items_container' dangerouslySetInnerHTML={{ __html: nav.content.rendered }} />
-            <LanguagePicker />
+            <LanguagePicker {...props} />
         </div>
     );
 

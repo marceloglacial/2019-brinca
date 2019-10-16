@@ -3,6 +3,8 @@ import Button from '../Button/Button';
 
 const Banner = props => {
     const data = props.data;
+    const language = props.language ? props.language : '';
+
     if (data.id) {
         const banner = {
             title: data.title.rendered,
@@ -21,7 +23,7 @@ const Banner = props => {
                         <div className='banner__description'>{banner.content}</div>
                     </div>
                     <div className='banner__cta'>
-                        <Button title={banner.button} link={banner.link} />
+                        <Button title={banner.button} link={`${language}/${banner.link}`} />
                     </div>
                 </div>
             </section>
