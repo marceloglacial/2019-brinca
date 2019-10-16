@@ -15,7 +15,6 @@ const Cards = props => {
                                 <img src={post.jetpack_featured_media_url} className='card-img-top' alt={post.title.rendered} />
                                 <div className='card-body'>
                                     <h5 className='card-title'>{post.title.rendered}</h5>
-                                    <div className='card-text' dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} key={`slide-${post.slug}`} />
                                 </div>
                             </a>
                         </Link>
