@@ -6,7 +6,7 @@ const Banner = props => {
     if (data.id) {
         const banner = {
             title: data.title.rendered,
-            content: <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />,
+            content: <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />,
             button: data.title.rendered,
             link: data.slug
         };
@@ -31,7 +31,7 @@ const Banner = props => {
             <section className='jumbotron'>
                 <h2 className='container display-4'>Sorry. No content found.</h2>
             </section>
-        )
+        );
     }
 };
 
