@@ -23,7 +23,9 @@ const Nav = props => {
                 <link rel='shortcut icon' type='image/x-icon' href={siteConfig.favicon} />
             </Head>
             <nav className={`site-nav site-nav--header`}>
-                <button className={`site-nav site-nav-button ${isOpen ? 'is-open' : ''}`} onClick={toggleMenu} />
+                <button name='mobile-menu' className={`site-nav site-nav-button ${isOpen ? 'is-open' : ''}`} onClick={toggleMenu}>
+                    <span>Mobile Menu</span>
+                </button>
                 {navitens}
             </nav>
         </>

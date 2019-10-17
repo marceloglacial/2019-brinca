@@ -11,6 +11,8 @@ const Home = props => (
             <title>
                 {siteConfig.title} - {siteConfig.description}
             </title>
+            <meta name='Description' content={`${siteConfig.title} - ${siteConfig.description}`} />
+            <meta name='robots' content='index, follow' />
         </Head>
         <Layout data={props.menu} footer={props.footer}>
             <Hero data={props.posts} />

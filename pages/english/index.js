@@ -5,9 +5,9 @@ import fetch from 'isomorphic-unfetch';
 import siteConfig from '../../components/Global/Global';
 import Banner from '../../components/Banner/Banner';
 
-const English = props => {
-    const language = 'english';
+const language = 'english';
 
+const English = props => {
     return (
         <>
             <Head>

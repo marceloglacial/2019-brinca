@@ -12,9 +12,6 @@ const siteConfig = {
     menu: {
         id: 286
     },
-    menuen: {
-        id: 359
-    },
     footer: {
         id: 320
     },

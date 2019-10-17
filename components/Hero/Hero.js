@@ -13,7 +13,7 @@ const Hero = props => {
                 <div className='slide' key={post.slug}>
                     <Link href='[id]' as={`${post.slug}`}>
                         <a className='slide__link'>
-                            <img className='sile__image' src={post.jetpack_featured_media_url} />
+                            <img className='sile__image' src={post.jetpack_featured_media_url} alt='' />
                             <div className='slide__legend container'>
                                 <h1 className='slide__title'>{post.title.rendered}</h1>
                             </div>

@@ -9,19 +9,19 @@ const LanguagePicker = props => {
         <div className='language-picker'>
             <p>
                 <a href='/'>
-                    <img src='../../static/flag-brazil.svg' />
+                    <img src='../../static/flag-brazil.svg' alt='Flag of Brazil' />
                     Português
                 </a>
             </p>
             <p>
                 <a href='/english' className={isEnglish}>
-                    <img src='../../static/flag-canada.svg' />
+                    <img src='../../static/flag-canada.svg' alt='Flag of Canada' />
                     English
                 </a>
             </p>
             <p>
                 <a href='/french/' className={isFrench}>
-                    <img src='../../static/flag-france.svg' />
+                    <img src='../../static/flag-france.svg' alt='Flag of France' />
                     French
                 </a>
             </p>
