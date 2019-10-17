@@ -27,6 +27,8 @@ const Post = props => {
         <>
             <Head>
                 <title>Brinca - {data.title.rendered}</title>
+                <meta name='Description' content={data.title.rendered} />
+                <meta name='robots' content='index, follow' />
             </Head>
             <Layout data={props.menu} footer={props.footer} language={`english`}>
                 <article className={`article-container page-${data.slug}`}>
