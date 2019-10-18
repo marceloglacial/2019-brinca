@@ -3,7 +3,7 @@ import './LanguagePicker.scss';
 const LanguagePicker = props => {
     const language = props.language;
     const isEnglish = language === 'english' ? 'active' : '';
-    const isFrench = language === 'french' ? 'active' : '';
+    const isFrench = language === 'francais' ? 'active' : '';
 
     return (
         <div className='language-picker'>
@@ -20,9 +20,9 @@ const LanguagePicker = props => {
                 </a>
             </p>
             <p>
-                <a href='/french/' className={isFrench}>
+                <a href='/francais' className={isFrench}>
                     <img src='../../static/flag-france.svg' alt='Flag of France' />
-                    French
+                    Français
                 </a>
             </p>
         </div>

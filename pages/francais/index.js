@@ -2,9 +2,9 @@ import fetch from 'isomorphic-unfetch';
 import siteConfig from '../../components/Global/Global';
 import Home from '../../components/Home/Home';
 
-const English = props => <Home {...props} />;
+const Francais = props => <Home {...props} />;
 
-English.getInitialProps = async function() {
+Francais.getInitialProps = async function() {
     // Posts
     const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.english.highlights.id}&order=desc`);
     const jsonPosts = await resPosts.json();
@@ -26,8 +26,8 @@ English.getInitialProps = async function() {
         posts: jsonPosts,
         banner: jsonBanner,
         footer: jsonFooter,
-        language: 'english'
+        language: 'francais'
     };
 };
 
-export default English;
+export default Francais;
