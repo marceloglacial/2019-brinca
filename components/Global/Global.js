@@ -1,7 +1,7 @@
 const siteConfig = {
     title: 'Brinca',
     description: "Brazil-Canada Community Association's website",
-    email: 'glacial@gmail.com',
+    email: 'info@brinca.ca',
     url: '/',
     favicon: 'static/favicon.png',
     logo: 'https://brincanada.files.wordpress.com/2019/08/logo.png',
@@ -40,6 +40,23 @@ const siteConfig = {
         },
         highlights: {
             id: 16817
+        }
+    },
+    francais: {
+        menu: {
+            id: 412
+        },
+        footer: {
+            id: 430
+        },
+        banner: {
+            id: 417
+        },
+        events: {
+            id: 415
+        },
+        highlights: {
+            id: 18285991
         }
     }
 };

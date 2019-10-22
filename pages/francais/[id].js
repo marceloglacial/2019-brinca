@@ -11,15 +11,15 @@ Post.getInitialProps = async function(context) {
     const json = await res.json();
 
     // Events
-    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.english.events.id}&order=desc`);
+    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.francais.events.id}&order=desc`);
     const jsonEvents = await resEvents.json();
 
     // Menus
-    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.english.menu.id}`);
+    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.menu.id}`);
     const jsonMenu = await resMenu.json();
 
     // Footer
-    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.english.footer.id}`);
+    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.footer.id}`);
     const jsonFooter = await resFooter.json();
 
     return {
@@ -27,7 +27,7 @@ Post.getInitialProps = async function(context) {
         post: json[0],
         events: jsonEvents,
         footer: jsonFooter,
-        language: 'english'
+        language: 'francais'
     };
 };
 

@@ -6,19 +6,19 @@ const Francais = props => <Home {...props} />;
 
 Francais.getInitialProps = async function() {
     // Posts
-    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.english.highlights.id}&order=desc`);
+    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.francais.highlights.id}&order=desc`);
     const jsonPosts = await resPosts.json();
 
     // Banner
-    const resBanner = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.english.banner.id}`);
+    const resBanner = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.banner.id}`);
     const jsonBanner = await resBanner.json();
 
     // Menus
-    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.english.menu.id}`);
+    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.menu.id}`);
     const jsonMenu = await resMenu.json();
 
     // Footer
-    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.english.footer.id}`);
+    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.footer.id}`);
     const jsonFooter = await resFooter.json();
 
     return {
