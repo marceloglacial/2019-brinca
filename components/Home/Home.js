@@ -14,7 +14,7 @@ const Home = props => (
             <meta name='robots' content='index, follow' />
         </Head>
         <Layout data={props.menu} footer={props.footer} language={props.language}>
-            <Hero data={props.posts} language={props.language} />
+            {/* <Hero data={props.posts} language={props.language} /> */}
             <Banner data={props.banner} language={props.language} />
         </Layout>
     </>
