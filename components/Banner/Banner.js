@@ -8,7 +8,7 @@ const Banner = props => {
     if (data.id) {
         const banner = {
             title: data.title.rendered,
-            content: <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />,
+            content: <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />,
             button: data.title.rendered,
             link: data.slug
         };
@@ -21,9 +21,6 @@ const Banner = props => {
                             <h2 className='heading-title'>{banner.title}</h2>
                         </div>
                         <div className='banner__description'>{banner.content}</div>
-                    </div>
-                    <div className='banner__cta'>
-                        <Button title={banner.button} link={`${language}/${banner.link}`} />
                     </div>
                 </div>
             </section>

@@ -18,6 +18,9 @@
     padding: 0;
     margin: 0;
     width: 100%;
+    @include size('desktop') {
+        font-size: 1.3rem;
+    }
 
     &.site-nav--header__item--telephone {
         @include size('tablet') {

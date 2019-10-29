@@ -16,7 +16,7 @@ const siteConfig = {
         id: 320
     },
     banner: {
-        id: 219
+        id: 440
     },
     highlights: {
         id: 193774
@@ -33,7 +33,7 @@ const siteConfig = {
             id: 385
         },
         banner: {
-            id: 387
+            id: 440
         },
         events: {
             id: 924
@@ -50,7 +50,7 @@ const siteConfig = {
             id: 430
         },
         banner: {
-            id: 417
+            id: 440
         },
         events: {
             id: 415
