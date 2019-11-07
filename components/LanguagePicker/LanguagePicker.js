@@ -13,13 +13,13 @@ const LanguagePicker = props => {
                     Português
                 </a>
             </p>
-            <p>
+            <p className={isEnglish}>
                 <a href='/english' className={isEnglish}>
                     <img src='../../static/flag-canada.svg' alt='Flag of Canada' />
                     English
                 </a>
             </p>
-            <p>
+            <p className={isFrench}>
                 <a href='/francais' className={isFrench}>
                     <img src='../../static/flag-france.svg' alt='Flag of France' />
                     Français

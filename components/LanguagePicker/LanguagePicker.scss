@@ -1,80 +1,53 @@
 @import '../Global/Global.scss';
 
-.language-picker {
+// Language Picker
+.site-nav--header .language-picker {
     a {
-        font-size: 0.9em;
-        display: flex;
-        padding: 0.5rem 1rem;
-
-        align-items: center;
-        color: var(--white);
-
-        width: 40%;
-        margin: 0 auto;
-
+        // Flags
         img {
-            width: 20px;
+            width: 28px;
             margin-right: 1rem;
-        }
-
-        @include size('desktop') {
-            margin: 0;
-            width: 100%;
-
-            &:hover {
-                color: var(--black);
-                text-decoration: none;
-                background: var(--grey-light);
-            }
         }
     }
 
     @include size('desktop') {
+        // Container
         position: absolute;
-        top: -90px;
-        right: 0;
-
-        display: flex;
-        flex-direction: column;
-        padding: 0;
+        top: 2rem;
+        right: 2rem;
+        display: grid;
         overflow: hidden;
-        height: 2.3rem;
+        z-index: 100;
+        width: 200px;
+        height: 3.8rem;
         background: var(--white);
-        transition: height 0.2s ease-in-out;
-        border-radius: 5px;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
-            height: 7.2rem;
-            box-shadow: 0px 0px 5px 5px var(--grey-light);
+            box-shadow: 0px 0px 8px 0px var(--black-fade);
+            height: calc(100% + 0.5rem);
+        }
 
-            a.active {
-                position: unset;
-                top: unset;
-                width: unset;
-            }
+        // Items
+        p.active {
+            order: -1;
+        }
+
+        p:hover {
+            background: var(--grey-light);
         }
 
         a {
-            display: inline-block;
-            align-items: unset;
-            justify-content: unset;
+            display: flex;
+            align-items: center;
+            text-align: left;
             color: var(--black);
-            margin: 0;
-            width: 100%;
         }
-        a.active {
-            position: absolute;
-            top: 0;
-            background-color: var(--white);
-            width: 1000%;
 
-            &:hover {
-                background: var(--grey-light);
-            }
-        }
-        p {
-            padding: 0;
-            margin: 0;
+        a:hover {
+            color: var(--black);
+            background: transparent;
         }
     }
 }
