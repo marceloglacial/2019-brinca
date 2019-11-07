@@ -1,18 +1,6 @@
 @import '../Global/Global.scss';
 
 .language-picker {
-    &:before {
-        display: block;
-        content: '';
-        width: 200px;
-        height: 2px;
-        background-color: var(--yellow);
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -1rem);
-    }
-    padding-top: 1rem;
-
     a {
         font-size: 0.9em;
         display: flex;
@@ -24,22 +12,24 @@
         width: 40%;
         margin: 0 auto;
 
-        &:hover {
-            color: var(--black);
-            text-decoration: none;
-            background: var(--grey-light);
-        }
         img {
             width: 20px;
             margin-right: 1rem;
         }
-        @include size('tablet') {
+
+        @include size('desktop') {
             margin: 0;
             width: 100%;
+
+            &:hover {
+                color: var(--black);
+                text-decoration: none;
+                background: var(--grey-light);
+            }
         }
     }
 
-    @include size('tablet') {
+    @include size('desktop') {
         position: absolute;
         top: -90px;
         right: 0;
@@ -62,12 +52,6 @@
                 top: unset;
                 width: unset;
             }
-        }
-    }
-
-    @include size('desktop') {
-        &::before {
-            display: none;
         }
 
         a {

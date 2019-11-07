@@ -24,7 +24,7 @@ const Nav = props => {
             </Head>
             <nav className={`site-nav site-nav--header`}>
                 <button name='mobile-menu' className={`site-nav site-nav-button ${isOpen ? 'is-open' : ''}`} onClick={toggleMenu}>
-                    <span>Mobile Menu</span>
+                    <span>Menu</span>
                 </button>
                 {navitens}
             </nav>

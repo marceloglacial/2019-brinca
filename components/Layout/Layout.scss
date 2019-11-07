@@ -4,8 +4,7 @@
 
 // Global Colors
 :root {
-    // --green: #479a52;
-    --green: green;
+    --green: #479a52;
     --green-hover: #0cc76f;
     --black: #222;
     --black-fade: rgba(0, 0, 0, 0.35);
@@ -14,6 +13,7 @@
     --grey-dark: rgba(#222, 0.5);
     --grey-light: rgba(0, 0, 0, 0.05);
     --shadow: -10px 10px 1px rgba(0, 0, 0, 0.9);
+    --white-soft: rgba(255, 255, 255, 0.3);
 }
 
 body {
