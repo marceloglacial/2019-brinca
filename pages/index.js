@@ -1,25 +1,10 @@
-import Head from 'next/head';
-import Layout from '../components/Layout/Layout';
-import Hero from '../components/Hero/Hero';
 import fetch from 'isomorphic-unfetch';
 import siteConfig from '../components/Global/Global';
-import Banner from '../components/Banner/Banner';
+import Home from '../components/Home/Home';
 
-const Home = props => (
-    <>
-        <Head>
-            <title>
-                {siteConfig.title} - {siteConfig.description}
-            </title>
-        </Head>
-        <Layout data={props.menu} footer={props.footer}>
-            <Hero data={props.posts} />
-            <Banner data={props.banner} />
-        </Layout>
-    </>
-);
+const Index = props => <Home {...props} />;
 
-Home.getInitialProps = async function() {
+Index.getInitialProps = async function() {
     // Posts
     const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}&order=desc`);
     const jsonPosts = await resPosts.json();
@@ -44,4 +29,4 @@ Home.getInitialProps = async function() {
     };
 };
 
-export default Home;
+export default Index;

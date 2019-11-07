@@ -5,10 +5,8 @@
     margin: 5px 0 10px -15px;
 
     @include size('tablet') {
-        max-width: 200px;
-        margin: 1rem 0;
+        max-width: 250px;
     }
-
     @include size('desktop') {
         max-width: 300px;
     }

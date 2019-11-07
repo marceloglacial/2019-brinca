@@ -1,15 +1,15 @@
 // Mixins
 @mixin size($size) {
     @if $size == 'phone' {
-        @media (max-width: 767px) {
+        @media (max-width: 766px) {
             @content;
         }
     } @else if $size == 'tablet' {
-        @media (min-width: 768px) {
+        @media (min-width: 767px) {
             @content;
         }
     } @else if $size == 'desktop' {
-        @media (min-width: 1023px) {
+        @media (min-width: 1367px) {
             @content;
         }
     } @else if $size == 'large-monitor' {
