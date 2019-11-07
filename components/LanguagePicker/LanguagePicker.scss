@@ -1,0 +1,53 @@
+@import '../Global/Global.scss';
+
+// Language Picker
+.site-nav--header .language-picker {
+    a {
+        // Flags
+        img {
+            width: 28px;
+            margin-right: 1rem;
+        }
+    }
+
+    @include size('desktop') {
+        // Container
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        display: grid;
+        overflow: hidden;
+        z-index: 100;
+        width: 200px;
+        height: 3.8rem;
+        background: var(--white);
+        border-radius: 0.5rem;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            box-shadow: 0px 0px 8px 0px var(--black-fade);
+            height: calc(100% + 0.5rem);
+        }
+
+        // Items
+        p.active {
+            order: -1;
+        }
+
+        p:hover {
+            background: var(--grey-light);
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            color: var(--black);
+        }
+
+        a:hover {
+            color: var(--black);
+            background: transparent;
+        }
+    }
+}

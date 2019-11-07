@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
-import siteConfig from '../components/Global/Global';
-import Single from '../components/Single/Single';
+import siteConfig from '../../components/Global/Global';
+import Single from '../../components/Single/Single';
 
 const Post = props => <Single {...props} />;
 
@@ -11,22 +11,23 @@ Post.getInitialProps = async function(context) {
     const json = await res.json();
 
     // Events
-    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.events.id}&order=desc`);
+    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.english.events.id}&order=desc`);
     const jsonEvents = await resEvents.json();
 
     // Menus
-    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.menu.id}`);
+    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.english.menu.id}`);
     const jsonMenu = await resMenu.json();
 
     // Footer
-    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.footer.id}`);
+    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.english.footer.id}`);
     const jsonFooter = await resFooter.json();
 
     return {
         menu: jsonMenu,
         post: json[0],
         events: jsonEvents,
-        footer: jsonFooter
+        footer: jsonFooter,
+        language: 'english'
     };
 };
 

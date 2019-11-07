@@ -6,7 +6,7 @@ import './Header.scss';
 const Header = props => (
     <header>
         <section className='site-header'>
-            <Logo />
+            <Logo {...props} />
             <Nav {...props} />
         </section>
     </header>

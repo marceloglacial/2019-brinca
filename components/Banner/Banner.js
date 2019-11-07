@@ -3,6 +3,8 @@ import Button from '../Button/Button';
 
 const Banner = props => {
     const data = props.data;
+    const language = props.language ? props.language : '';
+
     if (data.id) {
         const banner = {
             title: data.title.rendered,
@@ -16,12 +18,9 @@ const Banner = props => {
                 <div className='banner__container container'>
                     <div className='banner__info'>
                         <div className='banner__title'>
-                            <h3 className='heading-title'>{banner.title}</h3>
+                            <h2 className='heading-title'>{banner.title}</h2>
                         </div>
                         <div className='banner__description'>{banner.content}</div>
-                    </div>
-                    <div className='banner__cta'>
-                        <Button title={banner.button} link={banner.link} />
                     </div>
                 </div>
             </section>
@@ -31,7 +30,7 @@ const Banner = props => {
             <section className='jumbotron'>
                 <h2 className='container display-4'>Sorry. No content found.</h2>
             </section>
-        )
+        );
     }
 };
 

@@ -20,6 +20,7 @@
         border-radius: 0;
         overflow: hidden;
         transition: all 0.2s ease-in-out;
+        position: relative;
 
         &:hover {
             transform: translateY(-2px);
@@ -32,27 +33,22 @@
             color: var(--black);
         }
     }
+    .card-body {
+        // padding: 0;
+        position: absolute;
+        bottom: 0;
+        background: var(--yellow);
+    }
     .card-img-top {
         border-radius: 0;
-        height: 200px;
+        height: 300px;
         overflow: hidden;
         object-fit: cover;
     }
     .card-title {
         font-weight: bold;
-        color: var(--green);
-        position: relative;
-        z-index: 1;
-
-        &:after {
-            display: block;
-            content: '';
-            width: 50px;
-            height: 5px;
-            background: var(--yellow);
-            position: relative;
-            z-index: -1;
-        }
+        color: var(--black);
+        margin: 0;
     }
     .card-text p {
         padding: 0;
