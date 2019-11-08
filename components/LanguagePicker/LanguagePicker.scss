@@ -34,6 +34,7 @@
         }
 
         p:hover {
+            color: var(--black);
             background: var(--grey-light);
         }
 
@@ -43,8 +44,9 @@
             text-align: left;
             color: var(--black);
         }
-
-        a:hover {
+        a:focus,
+        a:hover,
+        a:active {
             color: var(--black);
             background: transparent;
         }

@@ -6,14 +6,14 @@ import ContactForm from '../ContactForm/ContactForm';
 import Subscription from '../Subscription/Subscription';
 
 const ExtraContent = props => {
-    const data = props.data;
+    const { data, language } = props;
     const pageSlug = data.slug;
 
-    if (pageSlug === 'fale-conosco') {
-        return <ContactForm email={siteConfig.email} />;
-    } else if (pageSlug === 'associe-se') {
+    if (pageSlug === 'fale-conosco' || pageSlug === 'contact-us' || pageSlug === 'contactez-nous') {
+        return <ContactForm email={siteConfig.email} language={language} />;
+    } else if (pageSlug === 'associe-se' || pageSlug === 'devenir-membre' || pageSlug === 'become-a-member') {
         return <Subscription />;
-    } else if (pageSlug === 'eventos') {
+    } else if (pageSlug === 'eventos' || pageSlug === 'events' || pageSlug === 'evenements') {
         return <Cards data={data} posts={props.events} />;
     } else {
         return <></>;
@@ -21,7 +21,9 @@ const ExtraContent = props => {
 };
 
 const Single = props => {
+    const { language } = props;
     const data = props.post;
+
     return (
         <>
             <Head>
@@ -35,7 +37,7 @@ const Single = props => {
                     </header>
                     <section className='article-content container'>
                         <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
-                        <ExtraContent data={data} events={props.events} rsvp={props.rsvp} />
+                        <ExtraContent data={data} events={props.events} language={language} />
                     </section>
                 </article>
             </Layout>
