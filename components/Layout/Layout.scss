@@ -4,7 +4,7 @@
 
 // Global Colors
 :root {
-    --green: #479a52;
+    --green: #2c6332;
     --green-hover: #0cc76f;
     --black: #222;
     --black-fade: rgba(0, 0, 0, 0.35);
@@ -110,7 +110,8 @@ body {
 
 // Pages
 .page-contact-us .article-content,
-.page-fale-conosco .article-content {
+.page-fale-conosco .article-content,
+.page-contactez-nous .article-content {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;

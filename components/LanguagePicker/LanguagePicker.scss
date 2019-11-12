@@ -18,7 +18,6 @@
         display: grid;
         overflow: hidden;
         z-index: 100;
-        width: 200px;
         height: 3.8rem;
         background: var(--white);
         border-radius: 0.5rem;
@@ -35,6 +34,7 @@
         }
 
         p:hover {
+            color: var(--black);
             background: var(--grey-light);
         }
 
@@ -44,8 +44,9 @@
             text-align: left;
             color: var(--black);
         }
-
-        a:hover {
+        a:focus,
+        a:hover,
+        a:active {
             color: var(--black);
             background: transparent;
         }

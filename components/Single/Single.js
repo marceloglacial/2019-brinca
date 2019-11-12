@@ -6,22 +6,65 @@ import ContactForm from '../ContactForm/ContactForm';
 import Subscription from '../Subscription/Subscription';
 
 const ExtraContent = props => {
-    const data = props.data;
-    const pageSlug = data.slug;
+    const { data, language } = props;
+    const pageSlug = props.post.slug;
+    const languageSelected = language ? language : 'portuguese';
 
-    if (pageSlug === 'fale-conosco') {
-        return <ContactForm email={siteConfig.email} />;
-    } else if (pageSlug === 'associe-se') {
+    // Contac Form
+    if (pageSlug === 'fale-conosco' || pageSlug === 'contact-us' || pageSlug === 'contactez-nous') {
+        return <ContactForm email={siteConfig.email} language={language} />;
+    }
+
+    // Subscription form
+    if (pageSlug === 'associe-se' || pageSlug === 'devenir-membre' || pageSlug === 'become-a-member') {
         return <Subscription />;
-    } else if (pageSlug === 'eventos') {
-        return <Cards data={data} posts={props.events} />;
+    }
+
+    // Events Cards
+    if (pageSlug === 'eventos' || pageSlug === 'events' || pageSlug === 'evenements') {
+        // Soon Title
+        const soonTitle = language => {
+            let result;
+
+            // TODO: Get real names usng jSON
+            result = language === 'portuguese' ? 'Em Breve' : result;
+            result = language === 'english' ? 'Soon' : result;
+            result = language === 'francais' ? 'Bientôt' : result;
+
+            return result;
+        };
+        const eventTitle = language => {
+            let result;
+
+            // TODO: Get real names usng jSON
+            result = language === 'portuguese' ? 'Eventos recentes' : result;
+            result = language === 'english' ? 'Recent Events' : result;
+            result = language === 'francais' ? 'Événements récentsentôt' : result;
+
+            return result;
+        };
+
+        // Get only soon posts
+        const cardPost = props.events;
+        const cardSoon = props.soon;
+
+        return (
+            <>
+                <h3 className='events-card-title'>{soonTitle(languageSelected)}</h3>
+                <Cards data={data} posts={cardSoon} />
+                <h3 className='events-card-title'>{eventTitle(languageSelected)}</h3>
+                <Cards data={data} posts={cardPost} />
+            </>
+        );
     } else {
         return <></>;
     }
 };
 
 const Single = props => {
+    const { language } = props;
     const data = props.post;
+
     return (
         <>
             <Head>
@@ -35,7 +78,7 @@ const Single = props => {
                     </header>
                     <section className='article-content container'>
                         <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
-                        <ExtraContent data={data} events={props.events} rsvp={props.rsvp} />
+                        <ExtraContent {...props} />
                     </section>
                 </article>
             </Layout>
