@@ -7,7 +7,7 @@ import Subscription from '../Subscription/Subscription';
 
 const ExtraContent = props => {
     const { data, language } = props;
-    const pageSlug = data.slug;
+    const pageSlug = props.post.slug;
     const languageSelected = language ? language : 'portuguese';
 
     // Contac Form
@@ -22,20 +22,38 @@ const ExtraContent = props => {
 
     // Events Cards
     if (pageSlug === 'eventos' || pageSlug === 'events' || pageSlug === 'evenements') {
+        // Soon Title
         const soonTitle = language => {
             let result;
+
+            // TODO: Get real names usng jSON
             result = language === 'portuguese' ? 'Em Breve' : result;
             result = language === 'english' ? 'Soon' : result;
             result = language === 'francais' ? 'Bientôt' : result;
 
             return result;
         };
+        const eventTitle = language => {
+            let result;
+
+            // TODO: Get real names usng jSON
+            result = language === 'portuguese' ? 'Eventos recentes' : result;
+            result = language === 'english' ? 'Recent Events' : result;
+            result = language === 'francais' ? 'Événements récentsentôt' : result;
+
+            return result;
+        };
+
+        // Get only soon posts
+        const cardPost = props.events;
+        const cardSoon = props.soon;
+
         return (
             <>
                 <h3 className='events-card-title'>{soonTitle(languageSelected)}</h3>
-                <Cards data={data} posts={props.events} />
-                <h3 className='events-card-title'>Eventos</h3>
-                <Cards data={data} posts={props.events} />
+                <Cards data={data} posts={cardSoon} />
+                <h3 className='events-card-title'>{eventTitle(languageSelected)}</h3>
+                <Cards data={data} posts={cardPost} />
             </>
         );
     } else {
@@ -60,7 +78,7 @@ const Single = props => {
                     </header>
                     <section className='article-content container'>
                         <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />
-                        <ExtraContent data={data} events={props.events} language={language} />
+                        <ExtraContent {...props} />
                     </section>
                 </article>
             </Layout>

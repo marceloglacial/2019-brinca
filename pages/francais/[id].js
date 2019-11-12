@@ -14,6 +14,10 @@ Post.getInitialProps = async function(context) {
     const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.francais.events.id}&order=desc`);
     const jsonEvents = await resEvents.json();
 
+    // Soon
+    const resSoon = await fetch(`${siteConfig.api.v2}/posts/?categories=${siteConfig.francais.soon.id}&order=desc`);
+    const jsonSoon = await resSoon.json();
+
     // Menus
     const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.menu.id}`);
     const jsonMenu = await resMenu.json();
@@ -27,6 +31,7 @@ Post.getInitialProps = async function(context) {
         post: json[0],
         events: jsonEvents,
         footer: jsonFooter,
+        soon: jsonSoon,
         language: 'francais'
     };
 };

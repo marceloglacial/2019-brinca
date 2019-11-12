@@ -1,5 +1,7 @@
+const sitTile = 'Brinca';
+
 const siteConfig = {
-    title: 'Brinca',
+    title: sitTile,
     description: "Brazil-Canada Community Association's website",
     email: 'info@brinca.ca',
     url: '/',
@@ -10,8 +12,9 @@ const siteConfig = {
         slug: 'Eventos'
     },
     soon: {
-        id: 660089,
-        slug: 'Em Breve'
+        id: 689703509,
+        title: 'Em Breve',
+        slug: 'em-breve'
     },
     menu: {
         id: 286,
@@ -47,6 +50,11 @@ const siteConfig = {
         events: {
             id: 924
         },
+        soon: {
+            id: 689703716,
+            title: 'Soon',
+            slug: 'soon'
+        },
         highlights: {
             id: 16817
         }
@@ -62,7 +70,12 @@ const siteConfig = {
             id: 466
         },
         events: {
-            id: 415
+            id: 19698
+        },
+        soon: {
+            id: 689703749,
+            title: 'Bientôt',
+            slug: 'bientot'
         },
         highlights: {
             id: 18285991
