@@ -7,19 +7,19 @@ const Post = props => <Single {...props} />;
 Post.getInitialProps = async function(context) {
     // Posts
     const { id } = context.query;
-    const res = await fetch(`${siteConfig.endpoints.posts}?slug=${id}`);
+    const res = await fetch(`${siteConfig.api.v2}/posts/?slug=${id}`);
     const json = await res.json();
 
     // Events
-    const resEvents = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.events.id}&order=desc`);
+    const resEvents = await fetch(`${siteConfig.api.v2}/posts/?categories=${siteConfig.events.id}&order=desc`);
     const jsonEvents = await resEvents.json();
 
     // Menus
-    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.menu.id}`);
+    const resMenu = await fetch(`${siteConfig.api.v2}/posts/${siteConfig.menu.id}`);
     const jsonMenu = await resMenu.json();
 
     // Footer
-    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.footer.id}`);
+    const resFooter = await fetch(`${siteConfig.api.v2}/posts/${siteConfig.footer.id}`);
     const jsonFooter = await resFooter.json();
 
     return {

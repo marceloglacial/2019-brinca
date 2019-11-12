@@ -53,18 +53,17 @@
     &.container {
         position: fixed;
         top: 0;
-        right: 0;
+        right: -100%;
         background: var(--green);
         width: 100%;
         height: 100vh;
         z-index: 10;
-        transform: translateX(100%);
-        transition: transform 0.2s ease-in-out;
+        transition: right 0.2s ease-in-out;
         padding: 0;
         margin: 0;
 
         &.is-open {
-            transform: translateX(0%);
+            right: 0%;
         }
 
         @include size('tablet') {
@@ -139,7 +138,6 @@
     @include size('desktop') {
         a {
             text-align: center;
-            background: transparent;
             transition: background 0.3s ease-in-out;
         }
     }

@@ -8,13 +8,36 @@ import Subscription from '../Subscription/Subscription';
 const ExtraContent = props => {
     const { data, language } = props;
     const pageSlug = data.slug;
+    const languageSelected = language ? language : 'portuguese';
 
+    // Contac Form
     if (pageSlug === 'fale-conosco' || pageSlug === 'contact-us' || pageSlug === 'contactez-nous') {
         return <ContactForm email={siteConfig.email} language={language} />;
-    } else if (pageSlug === 'associe-se' || pageSlug === 'devenir-membre' || pageSlug === 'become-a-member') {
+    }
+
+    // Subscription form
+    if (pageSlug === 'associe-se' || pageSlug === 'devenir-membre' || pageSlug === 'become-a-member') {
         return <Subscription />;
-    } else if (pageSlug === 'eventos' || pageSlug === 'events' || pageSlug === 'evenements') {
-        return <Cards data={data} posts={props.events} />;
+    }
+
+    // Events Cards
+    if (pageSlug === 'eventos' || pageSlug === 'events' || pageSlug === 'evenements') {
+        const soonTitle = language => {
+            let result;
+            result = language === 'portuguese' ? 'Em Breve' : result;
+            result = language === 'english' ? 'Soon' : result;
+            result = language === 'francais' ? 'Bientôt' : result;
+
+            return result;
+        };
+        return (
+            <>
+                <h3 className='events-card-title'>{soonTitle(languageSelected)}</h3>
+                <Cards data={data} posts={props.events} />
+                <h3 className='events-card-title'>Eventos</h3>
+                <Cards data={data} posts={props.events} />
+            </>
+        );
     } else {
         return <></>;
     }

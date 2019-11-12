@@ -3,7 +3,6 @@ import Layout from '../Layout/Layout';
 import Hero from '../Hero/Hero';
 import siteConfig from '../Global/Global';
 import Banner from '../Banner/Banner';
-import Events from '../Cards/Cards';
 
 const Home = props => (
     <>

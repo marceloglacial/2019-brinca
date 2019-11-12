@@ -9,8 +9,13 @@ const siteConfig = {
         id: 2366,
         slug: 'Eventos'
     },
+    soon: {
+        id: 660089,
+        slug: 'Em Breve'
+    },
     menu: {
-        id: 286
+        id: 286,
+        slug: 'menu-topo'
     },
     footer: {
         id: 320
@@ -20,6 +25,10 @@ const siteConfig = {
     },
     highlights: {
         id: 193774
+    },
+    api: {
+        v1: 'https://public-api.wordpress.com/rest/v1.1/sites/brincanada.wordpress.com',
+        v2: 'https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com'
     },
     endpoints: {
         posts: `https://public-api.wordpress.com/wp/v2/sites/brincanada.wordpress.com/posts`
@@ -33,7 +42,7 @@ const siteConfig = {
             id: 385
         },
         banner: {
-            id: 440
+            id: 464
         },
         events: {
             id: 924
@@ -50,7 +59,7 @@ const siteConfig = {
             id: 430
         },
         banner: {
-            id: 440
+            id: 466
         },
         events: {
             id: 415
