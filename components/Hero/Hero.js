@@ -15,7 +15,7 @@ const Hero = props => {
                         <a className='slide__link'>
                             <img className='slide__image' src={post.jetpack_featured_media_url} alt='' />
                             <Carousel.Caption>
-                                <h3>
+                                <h3 className='slide__title'>
                                     <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
                                 </h3>
                             </Carousel.Caption>
