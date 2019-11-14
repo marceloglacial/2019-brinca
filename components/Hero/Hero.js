@@ -1,27 +1,26 @@
 import React from 'react';
 import './Hero.scss';
 import Link from 'next/link';
-import { Carousel } from 'react-responsive-carousel';
-// Reference: https://www.npmjs.com/package/react-responsive-carousel
+import Carousel from 'react-bootstrap/Carousel';
 
 const Hero = props => {
     const data = props.data;
 
     const slildes = (
-        <Carousel showThumbs={false} showStatus={false} autoPlay={true} infiniteLoop={true}>
+        <Carousel>
             {data.map(post => (
-                <div className='slide' key={post.slug}>
+                <Carousel.Item key={post.slug}>
                     <Link href='[id]' as={`${post.slug}`}>
                         <a className='slide__link'>
-                            <img className='sile__image' src={post.jetpack_featured_media_url} alt='' />
-                            <div className='slide__legend container'>
-                                <h1 className='slide__title'>
+                            <img className='slide__image' src={post.jetpack_featured_media_url} alt='' />
+                            <Carousel.Caption>
+                                <h3>
                                     <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
-                                </h1>
-                            </div>
+                                </h3>
+                            </Carousel.Caption>
                         </a>
                     </Link>
-                </div>
+                </Carousel.Item>
             ))}
         </Carousel>
     );
