@@ -1,11 +1,11 @@
-@import './Carousel';
+@import '../Global/Global.scss';
 
 .slide__link {
     position: relative;
     display: flex;
     width: 100%;
     height: calc(100vh - 172px);
-    max-height: 750px;
+    max-height: 798px;
     color: var(--black);
 
     &:hover {
@@ -30,82 +30,8 @@
     @include size('large-monitor') {
         height: 720px;
     }
-}
-.control-dots {
-    display: none;
-}
-.carousel .control-arrow:before,
-.carousel.carousel-slider .control-arrow:before {
-    border-top: 18px solid transparent;
-    border-bottom: 18px solid transparent;
-}
-.carousel .control-next.control-arrow:before {
-    border-left: 18px solid #fff;
-}
-.carousel .control-prev.control-arrow:before {
-    border-right: 18px solid #fff;
-}
-.control-arrow {
-    @include size('phone') {
-        display: none;
-    }
-}
-.sile__image {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
-    z-index: 0;
-}
-
-.slide__legend {
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 0rem;
-
-    @include size('phone') {
-        justify-content: flex-end;
-        margin: 0;
-        padding: 0;
-    }
-}
-.slide__title,
-.slide__description {
-    font-weight: bold;
-    max-width: 60%;
-    text-align: left;
-    color: var(--white);
-    margin: 0;
-    text-align: center;
-
-    @include size('phone') {
-        max-width: unset;
+    .slide__image {
         width: 100%;
-        font-size: 1.2rem;
-        max-width: unset;
-        margin: 0;
+        object-fit: cover;
     }
-}
-
-.slide__title {
-    padding: 2rem;
-}
-.slide__description {
-    padding: 1.5rem;
-    margin: 0;
-    @include size('phone') {
-        padding: 1rem;
-        font-size: 1rem;
-    }
-}
-.slide__description p {
-    padding: 0;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
