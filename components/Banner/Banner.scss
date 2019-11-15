@@ -5,29 +5,11 @@
     padding-bottom: 4rem;
     background-color: #f7f7f7;
 
-    &__container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     ul,
     figure {
         padding: 0;
         margin: 0;
     }
-}
-.banner__info {
-    @media (max-width: 450px) {
-        text-align: center;
-        max-width: unset;
-    }
-}
-.banner__cta {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2rem;
 }
 .banner__title {
     .heading-title {
@@ -49,15 +31,16 @@
     }
 }
 .banner__description {
-    display: -webkit-box;
-    -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     figure {
         ul {
-            grid-gap: 10rem;
-            @include size('phone') {
-                grid-gap: 4rem;
+            grid-template-columns: 1fr;
+            grid-gap: 4rem;
+            @include size('tablet') {
+                grid-gap: 6rem;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            @include size('desktop') {
+                grid-gap: 10rem;
             }
         }
         img {

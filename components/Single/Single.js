@@ -63,15 +63,18 @@ const ExtraContent = props => {
 
 const Single = props => {
     const { language } = props;
+    const { name: siteName } = props.site;
     const data = props.post;
 
     return (
         <>
             <Head>
-                <title>Brinca - {data.title.rendered}</title>
+                <title>
+                    {siteName} - {data.title.rendered}
+                </title>
                 <meta name='Description' content={`Brinca - ${data.title.rendered}`} />
             </Head>
-            <Layout data={props.menu} footer={props.footer} language={props.language}>
+            <Layout data={props.menu} footer={props.footer} language={language} {...props}>
                 <article className={`article-container page-${data.slug}`}>
                     <header className='article-header'>
                         <h2 className='article-header__title container'>{data.title.rendered}</h2>

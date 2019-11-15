@@ -1,32 +1,23 @@
-import fetch from 'isomorphic-unfetch';
 import siteConfig from '../../components/Global/Global';
 import Home from '../../components/Home/Home';
+import api from '../../api/api';
+import { fecthApi } from '../../helpers/helpers';
 
 const Francais = props => <Home {...props} />;
 
 Francais.getInitialProps = async function() {
-    // Posts
-    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.francais.highlights.id}&order=desc`);
-    const jsonPosts = await resPosts.json();
-
-    // Banner
-    const resBanner = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.banner.id}`);
-    const jsonBanner = await resBanner.json();
-
-    // Menus
-    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.menu.id}`);
-    const jsonMenu = await resMenu.json();
-
-    // Footer
-    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.francais.footer.id}`);
-    const jsonFooter = await resFooter.json();
+    const jsonInfo = await fecthApi(api.siteInfo);
+    const jsonHero = await fecthApi(api.herofr);
+    const jsonIcons = await fecthApi(api.iconhomefr);
+    const jsonMenu = await fecthApi(`${api.posts}/${siteConfig.menu.id}`);
+    const jsonFooter = await fecthApi(`${api.posts}/${siteConfig.footer.id}`);
 
     return {
+        site: jsonInfo,
         menu: jsonMenu,
-        posts: jsonPosts,
-        banner: jsonBanner,
-        footer: jsonFooter,
-        language: 'francais'
+        posts: jsonHero,
+        banner: jsonIcons,
+        footer: jsonFooter
     };
 };
 

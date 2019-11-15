@@ -1,30 +1,22 @@
-import fetch from 'isomorphic-unfetch';
 import siteConfig from '../components/Global/Global';
 import Home from '../components/Home/Home';
+import api from '../api/api';
+import { fecthApi } from '../helpers/helpers';
 
 const Index = props => <Home {...props} />;
 
 Index.getInitialProps = async function() {
-    // Posts
-    const resPosts = await fetch(`${siteConfig.endpoints.posts}?categories=${siteConfig.highlights.id}&order=desc`);
-    const jsonPosts = await resPosts.json();
-
-    // Banner
-    const resBanner = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.banner.id}`);
-    const jsonBanner = await resBanner.json();
-
-    // Menus
-    const resMenu = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.menu.id}`);
-    const jsonMenu = await resMenu.json();
-
-    // Footer
-    const resFooter = await fetch(`${siteConfig.endpoints.posts}/${siteConfig.footer.id}`);
-    const jsonFooter = await resFooter.json();
+    const jsonInfo = await fecthApi(api.siteInfo);
+    const jsonHero = await fecthApi(api.heropt);
+    const jsonIcons = await fecthApi(api.iconhomept);
+    const jsonMenu = await fecthApi(`${api.posts}/${siteConfig.menu.id}`);
+    const jsonFooter = await fecthApi(`${api.posts}/${siteConfig.footer.id}`);
 
     return {
+        site: jsonInfo,
         menu: jsonMenu,
-        posts: jsonPosts,
-        banner: jsonBanner,
+        posts: jsonHero,
+        banner: jsonIcons,
         footer: jsonFooter
     };
 };

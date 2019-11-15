@@ -4,10 +4,12 @@ import siteConfig from '../../components/Global/Global';
 const Logo = props => {
     const language = props.language;
     const link = language ? language : '';
+    const logoUrl = props.site.logo.url;
+
     return (
         <div className='site-logo container'>
             <a href={`/${link}`}>
-                <img className='site-logo__image' src={siteConfig.logo} alt={`${siteConfig.title} - ${siteConfig.description}`} />
+                <img className='site-logo__image' src={logoUrl} alt={`${siteConfig.title} - ${siteConfig.description}`} />
             </a>
         </div>
     );

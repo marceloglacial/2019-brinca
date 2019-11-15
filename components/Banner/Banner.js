@@ -1,37 +1,23 @@
 import './Banner.scss';
-import Button from '../Button/Button';
 
 const Banner = props => {
-    const data = props.data;
-    const language = props.language ? props.language : '';
+    console.log(props);
 
-    if (data.id) {
-        const banner = {
-            title: data.title.rendered,
-            content: <div className='article-content__text' dangerouslySetInnerHTML={{ __html: data.content.rendered }} />,
-            button: data.title.rendered,
-            link: data.slug
-        };
+    const title = props.data.posts[0].title;
+    const content = <div className='article-content__text' dangerouslySetInnerHTML={{ __html: props.data.posts[0].content }} />;
 
-        return (
-            <section className='banner'>
-                <div className='banner__container container'>
-                    <div className='banner__info'>
-                        <div className='banner__title'>
-                            <h2 className='heading-title'>{banner.title}</h2>
-                        </div>
-                        <div className='banner__description'>{banner.content}</div>
+    return (
+        <section className='banner'>
+            <div className='banner__container container'>
+                <div className='banner__info'>
+                    <div className='banner__title'>
+                        <h2 className='heading-title'>{title}</h2>
                     </div>
+                    <div className='banner__description'>{content}</div>
                 </div>
-            </section>
-        );
-    } else {
-        return (
-            <section className='jumbotron'>
-                <h2 className='container display-4'>Sorry. No content found.</h2>
-            </section>
-        );
-    }
+            </div>
+        </section>
+    );
 };
 
 export default Banner;

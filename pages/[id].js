@@ -1,10 +1,15 @@
 import fetch from 'isomorphic-unfetch';
 import siteConfig from '../components/Global/Global';
 import Single from '../components/Single/Single';
+import api from '../api/api';
+import { fecthApi } from '../helpers/helpers';
 
 const Post = props => <Single {...props} />;
 
 Post.getInitialProps = async function(context) {
+    // Site Info
+    const jsonInfo = await fecthApi(api.siteInfo);
+
     // Posts
     const { id } = context.query;
     const res = await fetch(`${siteConfig.api.v2}/posts/?slug=${id}`);
@@ -27,6 +32,7 @@ Post.getInitialProps = async function(context) {
     const jsonFooter = await resFooter.json();
 
     return {
+        site: jsonInfo,
         menu: jsonMenu,
         post: json[0],
         events: jsonEvents,
