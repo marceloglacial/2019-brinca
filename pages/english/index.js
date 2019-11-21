@@ -7,9 +7,9 @@ const English = props => <Home {...props} />;
 
 English.getInitialProps = async function() {
     const jsonInfo = await fecthApi(api.siteInfo);
-    const jsonHero = await fecthApi(api.heroen);
-    const jsonIcons = await fecthApi(api.iconhomeen);
-    const jsonMenu = await fecthApi(`${api.posts}/${siteConfig.menu.id}`);
+    const jsonHero = await fecthApi(api.hero.english);
+    const jsonIcons = await fecthApi(api.icon.english);
+    const jsonMenu = await fecthApi(api.nav.english);
     const jsonFooter = await fecthApi(`${api.posts}/${siteConfig.footer.id}`);
 
     return {
@@ -17,7 +17,8 @@ English.getInitialProps = async function() {
         menu: jsonMenu,
         posts: jsonHero,
         banner: jsonIcons,
-        footer: jsonFooter
+        footer: jsonFooter,
+        language: 'english'
     };
 };
 

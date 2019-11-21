@@ -7,9 +7,9 @@ const Index = props => <Home {...props} />;
 
 Index.getInitialProps = async function() {
     const jsonInfo = await fecthApi(api.siteInfo);
-    const jsonHero = await fecthApi(api.heropt);
-    const jsonIcons = await fecthApi(api.iconhomept);
-    const jsonMenu = await fecthApi(`${api.posts}/${siteConfig.menu.id}`);
+    const jsonHero = await fecthApi(api.hero.portugues);
+    const jsonIcons = await fecthApi(api.icon.portugues);
+    const jsonMenu = await fecthApi(api.nav.portugues);
     const jsonFooter = await fecthApi(`${api.posts}/${siteConfig.footer.id}`);
 
     return {

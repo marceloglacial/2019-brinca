@@ -2,6 +2,10 @@
 
 // Language Picker
 .site-nav--header .language-picker {
+    p {
+        margin: 0;
+        border-bottom: solid 1px var(--white-soft);
+    }
     a {
         // Flags
         img {

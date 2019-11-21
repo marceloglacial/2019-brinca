@@ -1,16 +1,19 @@
 import './Logo.scss';
-import siteConfig from '../../components/Global/Global';
+import Link from 'next/link';
 
 const Logo = props => {
     const language = props.language;
-    const link = language ? language : '';
+    const logoLink = language ? language : '';
     const logoUrl = props.site.logo.url;
+    const logoAlt = props.site.name + "'s  logo";
 
     return (
         <div className='site-logo container'>
-            <a href={`/${link}`}>
-                <img className='site-logo__image' src={logoUrl} alt={`${siteConfig.title} - ${siteConfig.description}`} />
-            </a>
+            <Link href={`/${logoLink}`} as={`/${logoLink}`}>
+                <a>
+                    <img className='site-logo__image' src={logoUrl} alt={logoAlt} />
+                </a>
+            </Link>
         </div>
     );
 };

@@ -81,7 +81,9 @@
     }
 
     // Menu Itens Container
-    .site-nav--header__items_container {
+    .site-nav--header__items_container ul {
+        padding: 0;
+        margin: 0;
         @include size('desktop') {
             max-width: 1140px;
             margin: 0 auto;
@@ -108,7 +110,7 @@
     }
 
     // Navigation Item
-    p {
+    li {
         display: inline-block;
         width: 100%;
         margin: 0;

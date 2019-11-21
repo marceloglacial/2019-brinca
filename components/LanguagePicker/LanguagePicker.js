@@ -1,30 +1,28 @@
 import './LanguagePicker.scss';
+import Link from 'next/link';
 
 const LanguagePicker = props => {
-    const language = props.language;
-    const isEnglish = language === 'english' ? 'active' : '';
-    const isFrench = language === 'francais' ? 'active' : '';
+    const langNav = [
+        ['Português', ''],
+        ['English', 'english'],
+        ['Francais', 'francais']
+    ];
 
     return (
         <div className='language-picker'>
-            <p>
-                <a href='/'>
-                    <img src='../../static/flag-brazil.svg' alt='Flag of Brazil' />
-                    Português
-                </a>
-            </p>
-            <p className={isEnglish}>
-                <a href='/english' className={isEnglish}>
-                    <img src='../../static/flag-canada.svg' alt='Flag of Canada' />
-                    English
-                </a>
-            </p>
-            <p className={isFrench}>
-                <a href='/francais' className={isFrench}>
-                    <img src='../../static/flag-france.svg' alt='Flag of France' />
-                    Français
-                </a>
-            </p>
+            {langNav.map(langNavItem => {
+                let isActive = props.language === langNavItem[1] ? 'active' : '';
+                return (
+                    <p key={langNavItem[1]} className={isActive}>
+                        <Link href={`/${langNavItem[1]}`} as={langNavItem[1]}>
+                            <a>
+                                <img src={`../../static/flag-${langNavItem[1]}.svg`} alt='Flag of Brazil' />
+                                {langNavItem[0]}
+                            </a>
+                        </Link>
+                    </p>
+                );
+            })}
         </div>
     );
 };

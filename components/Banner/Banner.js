@@ -1,8 +1,6 @@
 import './Banner.scss';
 
 const Banner = props => {
-    console.log(props);
-
     const title = props.data.posts[0].title;
     const content = <div className='article-content__text' dangerouslySetInnerHTML={{ __html: props.data.posts[0].content }} />;
 
