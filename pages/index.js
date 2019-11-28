@@ -10,7 +10,7 @@ Index.getInitialProps = async function() {
     const jsonHero = await fecthApi(api.hero.portugues);
     const jsonIcons = await fecthApi(api.icon.portugues);
     const jsonMenu = await fecthApi(api.nav.portugues);
-    const jsonFooter = await fecthApi(`${api.posts}/${siteConfig.footer.id}`);
+    const jsonFooter = await fecthApi(api.footer.portugues);
 
     return {
         site: jsonInfo,

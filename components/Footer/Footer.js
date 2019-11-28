@@ -5,39 +5,46 @@ import './Footer.scss';
 const Footer = props => {
     const { title } = siteConfig;
     const year = new Date().getFullYear();
-    const language = props.language ? props.language : '';
-    const footerData = {
-        portugues: [
-            {
-                text: 'Associe-se',
-                link: 'associe-se'
-            },
-            {
-                text: 'Facebook',
-                link: 'http://facebook.com'
-            }
-        ]
+    const language = props.language ? props.language + '/' : '';
+
+    // Get Links a
+    const textContent = props.footer.content.split('\n').filter(function(e) {
+        return e;
+    });
+    const matchText = expression => {
+        const textMatch = textContent.map(item => {
+            const result = item.match(expression);
+            return result[1];
+        });
+        return textMatch;
     };
+
+    let arrayTest = [[], []];
+
+    console.log(matchText('<a href="(.*)">')[1]);
+
+    arrayTest[0].push(matchText('">(.*)</a>')[0]);
+    arrayTest[1].push(matchText('">(.*)</a>')[1]);
+    arrayTest[0].push(matchText('<a href="(.*)">')[0]);
+    arrayTest[1].push(matchText('<a href="(.*)">')[1]);
 
     const footerItems = (
         <>
-            {footerData.portugues.map(item => {
-                const isExternal = item.link.includes('http', 'www', '.com');
+            {arrayTest.map(item => {
+                const isExternal = item[1].includes('http', 'www', '.com');
 
                 if (isExternal) {
                     return (
-                        <li key={item.link}>
-                            <a href={item.link} target='_blank'>
-                                {item.text}
-                            </a>
+                        <li key={item[1]}>
+                            <a href={item[1]} target='_blank' dangerouslySetInnerHTML={{ __html: item[0] }} />
                         </li>
                     );
                 }
 
                 return (
-                    <li key={item.link}>
-                        <Link href={`${language}/[id]`} as={`${language}/${item.link}`}>
-                            <a>{item.text}</a>
+                    <li key={item[1]}>
+                        <Link href={`${language}[id]`} as={`${language}${item[1]}`}>
+                            <a dangerouslySetInnerHTML={{ __html: item[0] }} />
                         </Link>
                     </li>
                 );
