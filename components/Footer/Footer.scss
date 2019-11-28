@@ -3,7 +3,7 @@ footer {
     position: relative;
     color: var(--white);
 
-    p {
+    li {
         margin: 0;
         padding: 0;
     }
@@ -40,13 +40,14 @@ footer .site-footer-nav {
 }
 .site-footer-nav__items {
     max-width: 800px;
+    margin: 0 auto;
 
     @include size('desktop') {
         display: flex;
         justify-content: center;
     }
 }
-.site-footer-nav__items p {
+.site-footer-nav__items li {
     display: flex;
     align-items: center;
     justify-content: center;
