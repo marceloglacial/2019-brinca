@@ -20,9 +20,6 @@ const Footer = props => {
     };
 
     let arrayTest = [[], []];
-
-    console.log(matchText('<a href="(.*)">')[1]);
-
     arrayTest[0].push(matchText('">(.*)</a>')[0]);
     arrayTest[1].push(matchText('">(.*)</a>')[1]);
     arrayTest[0].push(matchText('<a href="(.*)">')[0]);
