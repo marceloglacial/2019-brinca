@@ -2,6 +2,11 @@
 
 Brazil-Canada Community Association's website
 
+## Live Demo
+
+<a href='2019-brinca.glacial.now.sh/'>Front-end (NextJS)</a>
+<a href='https://brincanada.wordpress.com/wp-admin/'>Back-end (WordPress.com)
+
 ## Features
 
 - React Web App
