@@ -1,4 +1,6 @@
-# BRINCA Website (2019)
+# Repository moved to [Brinca's Organization](https://github.com/brinca-ca/brinca-website-2019)
+
+## BRINCA Website (2019)
 
 Brazil-Canada Community Association's website
 
